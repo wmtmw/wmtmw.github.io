@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/leetcode100/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-649/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -339,7 +339,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/06/leetcode100/" class="post-title-link" itemprop="url">leetcode100</a>
+                <a href="/2019/03/08/leetcode-649/" class="post-title-link" itemprop="url">leetcode_649</a>
               
             
           </h1>
@@ -364,12 +364,365 @@
                 
               
 
-              <time title="Created: 2019-03-06 10:32:13 / Modified: 10:37:00" itemprop="dateCreated datePublished" datetime="2019-03-06T10:32:13+08:00">2019-03-06</time>
+              <time title="Created: 2019-03-08 10:40:11 / Modified: 10:50:09" itemprop="dateCreated datePublished" datetime="2019-03-08T10:40:11+08:00">2019-03-08</time>
             
 
             
               
 
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>（java）<br>解法1：使用List+中序遍历<br>       ①中序遍历后，list里的值按从小到大排序<br>       ②从第一位i到最后一位j求sum开始遍历，若sum&lt;k,则i++;sum&gt;k,j–;sum==k,正确;遍历结束,错误。</p>
+<p>代码：<br>        /**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li><p>}<br>*/<br>class Solution {<br> public boolean findTarget(TreeNode root, int k){</p>
+<pre><code>List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+inOrderTraversal(root,result);
+for(int i = 0,j = result.size()-1;i&lt;j;){
+    if(result.get(i)+result.get(j)&lt;k){
+        i++;
+    }
+    else if(result.get(i)+result.get(j)&gt;k){
+        j--;
+    }
+    else{
+        return true;
+    }
+}
+return false;
+</code></pre><p> }</p>
+<p> private void inOrderTraversal(TreeNode node, List<integer> result) {</integer></p>
+<pre><code>if(node.left != null){
+    inOrderTraversal(node.left,result);
+}
+result.add(node.val);
+if(node.right != null){
+    inOrderTraversal(node.right,result);
+}
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+<p>解法二：使用HashSet<br>        ①若节点root为空，则返回false；<br>        ②若set里含有值=（k-root.val），则返回true；<br>        ③否则，将该节点的值加入set；<br>        遍历左右子树重复步骤①-③<br>代码：<br>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li>}<br>*/<br>class Solution {<br> public boolean findTarget(TreeNode root, int k) {<pre><code>Set&lt;Integer&gt; set = new HashSet();
+return find(root, k, set);
+</code></pre> }<br> public boolean find(TreeNode root, int k, Set<integer> set){<pre><code>if(root == null){
+    return false;
+}
+if(set.contains(k-root.val)){
+    return true;
+}
+set.add(root.val);
+return find(root.left,k,set)||find(root.right,k,set);
+</code></pre> }<br>}</integer></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/abbr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/06/abbr/" class="post-title-link" itemprop="url">abbr</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-06 10:52:17 / Modified: 10:54:57" itemprop="dateCreated datePublished" datetime="2019-03-06T10:52:17+08:00">2019-03-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>QFI        QoS Flow ID                                          QoS流ID<br>RDI        Reflective QoS flow to DRB mapping Indication        反射QoS流到DRB映射指示<br>RQI        Reflective QoS Indication                            反射QoS指示<br>SDAP    Service Data Adaptation Protocol                     服务数据适应协议</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/leetcode-100/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/06/leetcode-100/" class="post-title-link" itemprop="url">leetcode_100</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-06 10:32:13" itemprop="dateCreated datePublished" datetime="2019-03-06T10:32:13+08:00">2019-03-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-08 10:40:46" itemprop="dateModified" datetime="2019-03-08T10:40:46+08:00">2019-03-08</time>
               
             
           </span>
@@ -816,7 +1169,7 @@ return false;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -835,7 +1188,9 @@ return false;
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

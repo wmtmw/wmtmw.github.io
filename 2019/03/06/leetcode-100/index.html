@@ -96,21 +96,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="/**  Definition for a binary tree node. struct TreeNode { int val; TreeNode *left; TreeNode *right; TreeNode(int x) : val(x), left(NULL), right(NULL) {} };/class Solution {public: bool isSameTree(Tree">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode_100">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/leetcode-100/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
+<meta property="og:description" content="/**  Definition for a binary tree node. struct TreeNode { int val; TreeNode *left; TreeNode *right; TreeNode(int x) : val(x), left(NULL), right(NULL) {} };/class Solution {public: bool isSameTree(Tree">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-25T12:09:43.700Z">
+<meta property="og:updated_time" content="2019-03-08T02:40:46.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="leetcode_100">
+<meta name="twitter:description" content="/**  Definition for a binary tree node. struct TreeNode { int val; TreeNode *left; TreeNode *right; TreeNode(int x) : val(x), left(NULL), right(NULL) {} };/class Solution {public: bool isSameTree(Tree">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/06/leetcode-100/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>tags | Sugar's blog</title>
+  <title>leetcode_100 | Sugar's blog</title>
   
 
 
@@ -240,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -299,91 +303,208 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/leetcode-100/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">leetcode_100
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              3 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/communication/" style="font-size: 12px; color: #ccc">communication</a> <a href="/tags/leetcode/" style="font-size: 30px; color: #111">leetcode</a> <a href="/tags/随笔/" style="font-size: 12px; color: #ccc">随笔</a>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-06 10:32:13" itemprop="dateCreated datePublished" datetime="2019-03-06T10:32:13+08:00">2019-03-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-08 10:40:46" itemprop="dateModified" datetime="2019-03-08T10:40:46+08:00">2019-03-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>struct TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode *left;</li>
+<li>TreeNode *right;</li>
+<li>TreeNode(int x) : val(x), left(NULL), right(NULL) {}</li>
+<li>};<br><em>/<br>class Solution {<br>public:<br> bool isSameTree(TreeNode</em> p, TreeNode* q) {<pre><code>//判断是否全为空
+if (p == NULL &amp;&amp; q == NULL){
+    return true;
+}
+//判断是否一个空，一个非空
+if (p == NULL || q == NULL){
+    return false;
+}
+//两个非空，则判断该节点值是否相同
+if(p-&gt;val == q-&gt;val){
+    return isSameTree(p-&gt;left,q-&gt;left)&amp;&amp;isSameTree(p-&gt;right,q-&gt;right);
+}
+//若不等，则不相同
+return false;
+</code></pre> }<br>};</li>
+</ul>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/25/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/06/abbr/" rel="prev" title="abbr">
+                abbr <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
