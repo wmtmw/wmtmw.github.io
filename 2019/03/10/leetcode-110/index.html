@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+  <meta name="description" content="题目来源：https://leetcode.com/problems/balanced-binary-tree/ 思路：递归。 代码： /**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; }">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_665">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/leetcode-665/index.html">
+<meta property="og:title" content="leetcode_110">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/leetcode-110/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta property="og:description" content="题目来源：https://leetcode.com/problems/balanced-binary-tree/ 思路：递归。 代码： /**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; }">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-08T03:19:09.113Z">
+<meta property="og:updated_time" content="2019-03-10T08:43:57.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_665">
-<meta name="twitter:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta name="twitter:title" content="leetcode_110">
+<meta name="twitter:description" content="题目来源：https://leetcode.com/problems/balanced-binary-tree/ 思路：递归。 代码： /**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; }">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/leetcode-665/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/leetcode-110/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>leetcode_665 | Sugar's blog</title>
+  <title>leetcode_110 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-665/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/leetcode-110/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_665
+          <h1 class="post-title" itemprop="name headline">leetcode_110
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 11:12:17 / Modified: 11:19:09" itemprop="dateCreated datePublished" datetime="2019-03-08T11:12:17+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-10 16:39:22 / Modified: 16:43:57" itemprop="dateCreated datePublished" datetime="2019-03-10T16:39:22+08:00">2019-03-10</time>
             
 
             
@@ -405,9 +405,10 @@
       
 
       
-        <p>审题：<br>二叉搜索树：又称二叉排序树，其左子树的值&lt;根节点&lt;右子树</p>
-<p>思路：<br>若根节点&gt;R,则考虑其左子树<br>若根节点&lt;L,则考虑其右子树<br>以此类推</p>
-<p>代码：<br>/**</p>
+        <p>题目来源：<a href="https://leetcode.com/problems/balanced-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/balanced-binary-tree/</a></p>
+<p>思路：递归。</p>
+<p>代码：</p>
+<p>/**</p>
 <ul>
 <li>Definition for a binary tree node.</li>
 <li>public class TreeNode {</li>
@@ -415,20 +416,25 @@
 <li>TreeNode left;</li>
 <li>TreeNode right;</li>
 <li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public TreeNode trimBST(TreeNode root, int L, int R) {</p>
-<pre><code>if(root == null){
-    return null;
+<li><p>}<br>*/<br>class Solution {</p>
+<p> boolean flag = true;</p>
+<p> public int dfs(TreeNode root){</p>
+<pre><code>if (root == null){
+    return 0;
 }
-if(root.val&gt;R){
-    return trimBST(root.left,L,R);
+if (flag == false){
+    return -1;
 }
-if(root.val&lt;L){
-    return trimBST(root.right,L,R);
+int left = dfs(root.left);
+int right = dfs(root.right);
+if(Math.abs(left-right)&gt;1){
+    flag = false;
 }
-
-root.left = trimBST(root.left,L,R);
-root.right = trimBST(root.right,L,R);
-return root;
+return Math.max(left,right)+1;
+</code></pre><p> }</p>
+<p> public boolean isBalanced(TreeNode root) {</p>
+<pre><code>dfs(root);
+return flag;
 </code></pre><p> }<br>}</p>
 </li>
 </ul>
@@ -468,8 +474,8 @@ return root;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/leetcode-649/" rel="next" title="leetcode_649">
-                <i class="fa fa-chevron-left"></i> leetcode_649
+              <a href="/2019/03/10/leetcode-108/" rel="next" title="leetcode_108">
+                <i class="fa fa-chevron-left"></i> leetcode_108
               </a>
             
           </div>
@@ -478,8 +484,8 @@ return root;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/08/leetcode-101/" rel="prev" title="leetcode_101">
-                leetcode_101 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/10/leetcode-111/" rel="prev" title="leetcode_111">
+                leetcode_111 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

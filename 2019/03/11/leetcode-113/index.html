@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+  <meta name="description" content="题目来源：https://leetcode.com/problems/path-sum-ii/ 代码： /**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; } }*/class Soluti">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_665">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/leetcode-665/index.html">
+<meta property="og:title" content="leetcode_113">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/leetcode-113/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta property="og:description" content="题目来源：https://leetcode.com/problems/path-sum-ii/ 代码： /**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; } }*/class Soluti">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-08T03:19:09.113Z">
+<meta property="og:updated_time" content="2019-03-11T00:51:58.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_665">
-<meta name="twitter:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta name="twitter:title" content="leetcode_113">
+<meta name="twitter:description" content="题目来源：https://leetcode.com/problems/path-sum-ii/ 代码： /**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; } }*/class Soluti">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/leetcode-665/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetcode-113/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>leetcode_665 | Sugar's blog</title>
+  <title>leetcode_113 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-665/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-113/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_665
+          <h1 class="post-title" itemprop="name headline">leetcode_113
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 11:12:17 / Modified: 11:19:09" itemprop="dateCreated datePublished" datetime="2019-03-08T11:12:17+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-11 08:50:51 / Modified: 08:51:58" itemprop="dateCreated datePublished" datetime="2019-03-11T08:50:51+08:00">2019-03-11</time>
             
 
             
@@ -405,9 +405,9 @@
       
 
       
-        <p>审题：<br>二叉搜索树：又称二叉排序树，其左子树的值&lt;根节点&lt;右子树</p>
-<p>思路：<br>若根节点&gt;R,则考虑其左子树<br>若根节点&lt;L,则考虑其右子树<br>以此类推</p>
-<p>代码：<br>/**</p>
+        <p>题目来源：<a href="https://leetcode.com/problems/path-sum-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum-ii/</a></p>
+<p>代码：</p>
+<p>/**</p>
 <ul>
 <li>Definition for a binary tree node.</li>
 <li>public class TreeNode {</li>
@@ -415,20 +415,32 @@
 <li>TreeNode left;</li>
 <li>TreeNode right;</li>
 <li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public TreeNode trimBST(TreeNode root, int L, int R) {</p>
-<pre><code>if(root == null){
-    return null;
+<li><p>}<br>*/<br>class Solution {<br> public List&lt;List<integer>&gt; pathSum(TreeNode root, int sum) {</integer></p>
+<pre><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;&gt;();
+if(root == null){
+    return list;
 }
-if(root.val&gt;R){
-    return trimBST(root.left,L,R);
+List&lt;Integer&gt; currentList = new ArrayList&lt;&gt;();
+currentList.add(root.val);
+traverse(list,currentList,root,sum);
+return list;
+</code></pre><p> }<br> public void traverse(List&lt;List<integer>&gt; list,List<integer> currentList,TreeNode root,int sum){ </integer></integer></p>
+<pre><code>if(root.left == null &amp;&amp; root.right == null){
+    if (root.val == sum){
+        list.add(new ArrayList&lt;&gt;(currentList));
+    }
+    return;
 }
-if(root.val&lt;L){
-    return trimBST(root.right,L,R);
+if(root.left != null){
+    currentList.add(root.left.val);
+    traverse(list,currentList,root.left,sum-root.val);
+    currentList.remove(currentList.size()-1);
 }
-
-root.left = trimBST(root.left,L,R);
-root.right = trimBST(root.right,L,R);
-return root;
+if(root.right != null){
+    currentList.add(root.right.val);
+    traverse(list,currentList,root.right,sum-root.val);
+    currentList.remove(currentList.size()-1);
+}
 </code></pre><p> }<br>}</p>
 </li>
 </ul>
@@ -468,8 +480,8 @@ return root;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/leetcode-649/" rel="next" title="leetcode_649">
-                <i class="fa fa-chevron-left"></i> leetcode_649
+              <a href="/2019/03/11/leetcode-112/" rel="next" title="leetcode_112">
+                <i class="fa fa-chevron-left"></i> leetcode_112
               </a>
             
           </div>
@@ -478,8 +490,8 @@ return root;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/08/leetcode-101/" rel="prev" title="leetcode_101">
-                leetcode_101 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/11/leetcode-118/" rel="prev" title="leetcode_118">
+                leetcode_118 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

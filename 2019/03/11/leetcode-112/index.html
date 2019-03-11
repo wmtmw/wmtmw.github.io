@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+  <meta name="description" content="题目来源：https://leetcode.com/problems/path-sum/ 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; } }*/class Solution {">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_665">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/leetcode-665/index.html">
+<meta property="og:title" content="leetcode_112">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/leetcode-112/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta property="og:description" content="题目来源：https://leetcode.com/problems/path-sum/ 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; } }*/class Solution {">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-08T03:19:09.113Z">
+<meta property="og:updated_time" content="2019-03-11T00:18:20.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_665">
-<meta name="twitter:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta name="twitter:title" content="leetcode_112">
+<meta name="twitter:description" content="题目来源：https://leetcode.com/problems/path-sum/ 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x; } }*/class Solution {">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/leetcode-665/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetcode-112/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>leetcode_665 | Sugar's blog</title>
+  <title>leetcode_112 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-665/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-112/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_665
+          <h1 class="post-title" itemprop="name headline">leetcode_112
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 11:12:17 / Modified: 11:19:09" itemprop="dateCreated datePublished" datetime="2019-03-08T11:12:17+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-11 08:16:53 / Modified: 08:18:20" itemprop="dateCreated datePublished" datetime="2019-03-11T08:16:53+08:00">2019-03-11</time>
             
 
             
@@ -405,8 +405,7 @@
       
 
       
-        <p>审题：<br>二叉搜索树：又称二叉排序树，其左子树的值&lt;根节点&lt;右子树</p>
-<p>思路：<br>若根节点&gt;R,则考虑其左子树<br>若根节点&lt;L,则考虑其右子树<br>以此类推</p>
+        <p>题目来源：<a href="https://leetcode.com/problems/path-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum/</a></p>
 <p>代码：<br>/**</p>
 <ul>
 <li>Definition for a binary tree node.</li>
@@ -415,22 +414,27 @@
 <li>TreeNode left;</li>
 <li>TreeNode right;</li>
 <li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public TreeNode trimBST(TreeNode root, int L, int R) {</p>
-<pre><code>if(root == null){
-    return null;
+<li>}<br>*/<br>class Solution {<br> public boolean hasPathSum(TreeNode root, int sum) {<pre><code>int s = 0;
+ return dfs(root,sum,s);
+</code></pre> }<br> public boolean dfs(TreeNode root, int sum,int s){<pre><code>if(root == null){
+    return false;
 }
-if(root.val&gt;R){
-    return trimBST(root.left,L,R);
+if(root.left == null &amp;&amp; root.right == null){
+    //到达叶节点，判断和是否等于sum
+    s += root.val;
+    if(s == sum){
+        return true;
+    }
 }
-if(root.val&lt;L){
-    return trimBST(root.right,L,R);
+s += root.val;
+//递归
+boolean left = dfs(root.left,sum,s);
+boolean right = dfs(root.right,sum,s);
+if(left||right){
+    return true;
 }
-
-root.left = trimBST(root.left,L,R);
-root.right = trimBST(root.right,L,R);
-return root;
-</code></pre><p> }<br>}</p>
-</li>
+return false;
+</code></pre> }<br>}</li>
 </ul>
 
       
@@ -468,8 +472,8 @@ return root;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/leetcode-649/" rel="next" title="leetcode_649">
-                <i class="fa fa-chevron-left"></i> leetcode_649
+              <a href="/2019/03/10/leetcode-111/" rel="next" title="leetcode_111">
+                <i class="fa fa-chevron-left"></i> leetcode_111
               </a>
             
           </div>
@@ -478,8 +482,8 @@ return root;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/08/leetcode-101/" rel="prev" title="leetcode_101">
-                leetcode_101 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/11/leetcode-113/" rel="prev" title="leetcode_113">
+                leetcode_113 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

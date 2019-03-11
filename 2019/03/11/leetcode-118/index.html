@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+  <meta name="description" content="题目来源：https://leetcode.com/problems/pascals-triangle/ 思路：动态规划 代码：class Solution {    public List&amp;lt;List&amp;gt; generate(int numRows) {        List&amp;lt;List&amp;gt; list = new ArrayList&amp;lt;List&amp;gt;();        /">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_665">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/leetcode-665/index.html">
+<meta property="og:title" content="leetcode_118">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/leetcode-118/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta property="og:description" content="题目来源：https://leetcode.com/problems/pascals-triangle/ 思路：动态规划 代码：class Solution {    public List&amp;lt;List&amp;gt; generate(int numRows) {        List&amp;lt;List&amp;gt; list = new ArrayList&amp;lt;List&amp;gt;();        /">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-08T03:19:09.113Z">
+<meta property="og:updated_time" content="2019-03-11T01:32:21.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_665">
-<meta name="twitter:description" content="审题：二叉搜索树：又称二叉排序树，其左子树的值&amp;lt;根节点&amp;lt;右子树 思路：若根节点&amp;gt;R,则考虑其左子树若根节点&amp;lt;L,则考虑其右子树以此类推 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int">
+<meta name="twitter:title" content="leetcode_118">
+<meta name="twitter:description" content="题目来源：https://leetcode.com/problems/pascals-triangle/ 思路：动态规划 代码：class Solution {    public List&amp;lt;List&amp;gt; generate(int numRows) {        List&amp;lt;List&amp;gt; list = new ArrayList&amp;lt;List&amp;gt;();        /">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/leetcode-665/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetcode-118/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>leetcode_665 | Sugar's blog</title>
+  <title>leetcode_118 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-665/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-118/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_665
+          <h1 class="post-title" itemprop="name headline">leetcode_118
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 11:12:17 / Modified: 11:19:09" itemprop="dateCreated datePublished" datetime="2019-03-08T11:12:17+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-11 09:27:05 / Modified: 09:32:21" itemprop="dateCreated datePublished" datetime="2019-03-11T09:27:05+08:00">2019-03-11</time>
             
 
             
@@ -405,33 +405,9 @@
       
 
       
-        <p>审题：<br>二叉搜索树：又称二叉排序树，其左子树的值&lt;根节点&lt;右子树</p>
-<p>思路：<br>若根节点&gt;R,则考虑其左子树<br>若根节点&lt;L,则考虑其右子树<br>以此类推</p>
-<p>代码：<br>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public TreeNode trimBST(TreeNode root, int L, int R) {</p>
-<pre><code>if(root == null){
-    return null;
-}
-if(root.val&gt;R){
-    return trimBST(root.left,L,R);
-}
-if(root.val&lt;L){
-    return trimBST(root.right,L,R);
-}
-
-root.left = trimBST(root.left,L,R);
-root.right = trimBST(root.right,L,R);
-return root;
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
+        <p>题目来源：<a href="https://leetcode.com/problems/pascals-triangle/" target="_blank" rel="noopener">https://leetcode.com/problems/pascals-triangle/</a></p>
+<p>思路：动态规划</p>
+<p>代码：<br>class Solution {<br>    public List&lt;List<integer>&gt; generate(int numRows) {<br>        List&lt;List<integer>&gt; list = new ArrayList&lt;List<integer>&gt;();<br>        //若只有零行<br>        if(numRows == 0){<br>            return list;<br>        }<br>        //第一行元素总为1<br>        list.add(new ArrayList&lt;&gt;());<br>        list.get(0).add(1);<br>        for(int rowNum = 1;rowNum&lt;numRows;rowNum++){<br>            List<integer> row = new ArrayList&lt;&gt;();<br>            List<integer> prevRow = list.get(rowNum-1);<br>            //每行第一个元素都为1<br>            row.add(1);<br>            for(int j = 1;j &lt; rowNum;j++){<br>                row.add(prevRow.get(j-1)+prevRow.get(j));<br>            }<br>            //每行最后一个元素为1<br>            row.add(1);<br>            list.add(row);<br>        }<br>        return list;<br>    }<br>}</integer></integer></integer></integer></integer></p>
 
       
     </div>
@@ -468,8 +444,8 @@ return root;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/leetcode-649/" rel="next" title="leetcode_649">
-                <i class="fa fa-chevron-left"></i> leetcode_649
+              <a href="/2019/03/11/leetcode-113/" rel="next" title="leetcode_113">
+                <i class="fa fa-chevron-left"></i> leetcode_113
               </a>
             
           </div>
@@ -477,10 +453,6 @@ return root;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/08/leetcode-101/" rel="prev" title="leetcode_101">
-                leetcode_101 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
