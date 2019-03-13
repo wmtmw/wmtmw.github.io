@@ -319,6 +319,683 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/leetcode-102/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/leetcode-102/" class="post-title-link" itemprop="url">leetcode_102</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-10 11:36:23 / Modified: 11:38:46" itemprop="dateCreated datePublished" datetime="2019-03-10T11:36:23+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目来源：<a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">https://leetcode.com/problems/binary-tree-level-order-traversal/</a></p>
+<p>这道题和107题刚好是相反的，所以将每层节点的值加入最终结果的Arraylist的尾部即可</p>
+<p>代码：</p>
+<p>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li>}<br>*/<br>class Solution {<br> public List&lt;List<integer>&gt; levelOrder(TreeNode root) {<pre><code>Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+queue.add(root);
+while(!queue.isEmpty()){
+    List&lt;Integer&gt; currentResult = new ArrayList&lt;&gt;();
+    int size = queue.size();
+    for(int i = 0;i &lt; size;i++){
+        TreeNode node = queue.remove();
+        if (node != null){
+            currentResult.add(node.val);
+            queue.add(node.left);
+            queue.add(node.right);
+        }
+    }
+    if(!currentResult.isEmpty()){
+        result.add(currentResult);
+    }
+}
+return result;
+</code></pre> }<br>}</integer></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/leetcode-107/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/leetcode-107/" class="post-title-link" itemprop="url">leetcodede_107</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-10 11:16:01 / Modified: 11:25:31" itemprop="dateCreated datePublished" datetime="2019-03-10T11:16:01+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目来源：<a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/binary-tree-level-order-traversal-ii/</a></p>
+<p>思路：     按层遍历</p>
+<p>代码：</p>
+<p>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li>}<br>*/<br>class Solution {<br> public List&lt;List<integer>&gt; levelOrderBottom(TreeNode root) {<pre><code>Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;(); //记录节点
+List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;(); //记录最终结果
+    //将根节点假如queue中
+queue.add(root);
+while (!queue.isEmpty()){
+    List&lt;Integer&gt; currentResult = new ArrayList&lt;&gt;(); //记录每层所有节点的值
+    int size = queue.size();  //记录该层节点总数
+    for(int i = 0; i &lt; size;i++){ //遍历该层左右节点
+        TreeNode node = queue.remove(); //从队列中依次取出该层节点
+        if(node != null){
+            currentResult.add(node.val);  //记录当点节点的值
+            //将当前节点的左右子节点加入queue中，遍历所有节点后，便得到了下一层的所有节点，因为LinkedList是链表，是有序的，所以会严格按照左右节点的顺序
+            queue.add(node.left);  
+            queue.add(node.right);
+        }
+    }
+    if(!currentResult.isEmpty()){
+    //将当前层的所有节点的值加入result的头部，读出时才是从子节点到根节点的顺序
+        result.add(0,currentResult);
+    }
+}
+return result;
+</code></pre>}<br>}</integer></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/leetcode-104/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/10/leetcode-104/" class="post-title-link" itemprop="url">leetcode_104</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-10 10:26:00 / Modified: 10:28:26" itemprop="dateCreated datePublished" datetime="2019-03-10T10:26:00+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目来源：<a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p>
+<p>方法：递归</p>
+<p>代码：<br>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li><p>}<br>*/<br>class Solution {<br> public int maxDepth(TreeNode root) {</p>
+<pre><code>if (root==null){
+    return 0;
+}
+else{
+    int max_left = maxDepth(root.left);
+    int max_right = maxDepth(root.right);
+    int max = Math.max(max_left,max_right)+1;
+    return max;
+}
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/08/leetcode-101/" class="post-title-link" itemprop="url">leetcode_101</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-08 11:41:05 / Modified: 11:52:49" itemprop="dateCreated datePublished" datetime="2019-03-08T11:41:05+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>思路：<br>若左子树与右子树是镜像，需满足：<br>①根节点值相同<br>②左子树的左子树与右子树的右子树相同；左子树的右子树与右子树的左子树相同</p>
+<p>代码：<br>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li>}<br>*/<br>class Solution {<br> public boolean isSymmetric(TreeNode root) {<pre><code>return isMirror(root,root);
+</code></pre> }<br> public boolean isMirror(TreeNode t1,TreeNode t2){<pre><code>if(t1 == null &amp;&amp; t2 == null){
+    return true;
+}
+if(t1 == null || t2 == null){
+    return false;
+}
+return (t1.val == t2.val) &amp;&amp; (isMirror(t1.left,t2.right)) &amp;&amp; (isMirror(t1.right,t2.left));
+</code></pre> }<br>}</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-665/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1342,7 +2019,7 @@ return false;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
