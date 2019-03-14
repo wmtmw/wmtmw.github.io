@@ -96,14 +96,18 @@
 
 
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="题目来源：https://leetcode.com/problems/invert-binary-tree/ 审题：也就是左右子树交换，采用递归法 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { v">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
 <meta property="og:title" content="leetcode_226">
 <meta property="og:url" content="http://yoursite.com/2019/03/12/leetcode-226/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
+<meta property="og:description" content="题目来源：https://leetcode.com/problems/invert-binary-tree/ 审题：也就是左右子树交换，采用递归法 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { v">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-12T02:49:02.251Z">
+<meta property="og:updated_time" content="2019-03-14T06:56:01.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode_226">
+<meta name="twitter:description" content="题目来源：https://leetcode.com/problems/invert-binary-tree/ 审题：也就是左右子树交换，采用递归法 代码：/**  Definition for a binary tree node. public class TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { v">
 
 
 
@@ -366,6 +370,22 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-14 14:56:01" itemprop="dateModified" datetime="2019-03-14T14:56:01+08:00">2019-03-14</time>
+              
+            
           </span>
 
           
@@ -397,7 +417,27 @@
       
 
       
-        
+        <p>题目来源：<a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/invert-binary-tree/</a></p>
+<p>审题：也就是左右子树交换，采用递归法</p>
+<p>代码：<br>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li>}<br>*/<br>class Solution {<br> public TreeNode invertTree(TreeNode root) {<pre><code>if(root == null){
+    return null;
+}
+TreeNode right = invertTree(root.right);
+TreeNode left = invertTree(root.left);
+root.left = right;
+root.right = left;
+return root;
+</code></pre> }<br>}</li>
+</ul>
+
       
     </div>
 
@@ -417,6 +457,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
       
 
       
@@ -501,7 +547,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
