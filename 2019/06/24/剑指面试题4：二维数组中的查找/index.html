@@ -96,21 +96,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="分析： ①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。 ②从右上角开始，    若target等于该数，则true；                 若target大于该数，则位于该数下方；                 若target小于该数，则位于该数左侧，row-1； ③边界条件，        要注意查找范围是否为空：array.length&amp;gt;">
+<meta name="keywords" content="剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指面试题4：二维数组中的查找">
+<meta property="og:url" content="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
+<meta property="og:description" content="分析： ①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。 ②从右上角开始，    若target等于该数，则true；                 若target大于该数，则位于该数下方；                 若target小于该数，则位于该数左侧，row-1； ③边界条件，        要注意查找范围是否为空：array.length&amp;gt;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-26T01:18:27.705Z">
+<meta property="og:updated_time" content="2019-06-24T15:17:46.230Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="剑指面试题4：二维数组中的查找">
+<meta name="twitter:description" content="分析： ①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。 ②从右上角开始，    若target等于该数，则true；                 若target大于该数，则位于该数下方；                 若target小于该数，则位于该数左侧，row-1； ③边界条件，        要注意查找范围是否为空：array.length&amp;gt;">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>about | Sugar's blog</title>
+  <title>剑指面试题4：二维数组中的查找 | Sugar's blog</title>
   
 
 
@@ -257,7 +261,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -299,70 +303,199 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">about
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">剑指面试题4：二维数组中的查找
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-24 23:10:56 / Modified: 23:17:46" itemprop="dateCreated datePublished" datetime="2019-06-24T23:10:56+08:00">2019-06-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>分析：</p>
+<pre><code>①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。
+②从右上角开始，    若target等于该数，则true；
+                若target大于该数，则位于该数下方；
+                若target小于该数，则位于该数左侧，row-1；
+③边界条件，        要注意查找范围是否为空：array.length&gt;0
+                遍历到左上角或者左下角或者右下角。所以是row=array.length-1,col=0;
+
+
+public class Solution {
+public boolean Find(int target, int [][] array) {
+if (array.length&lt;=0){
+    return false;
+}
+//右上角的点
+int row = 0;
+int col = array[0].length-1;
+while(row &lt; array.length &amp;&amp; col &gt;= 0){
+    if(target == array[row][col]){
+        return true;
+    }
+    if(target &lt; array[row][col]){
+        col--;
+    }
+    else{
+        row++;
+    }
+}
+    return false;
+}
+</code></pre><p>}</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/14/leetcode-235/" rel="next" title="leetcode_235">
+                <i class="fa fa-chevron-left"></i> leetcode_235
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
