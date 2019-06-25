@@ -319,6 +319,206 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/25/剑指面试题7-java-重建二叉树/" class="post-title-link" itemprop="url">剑指面试题7(java):重建二叉树</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-25 22:28:52 / Modified: 22:33:39" itemprop="dateCreated datePublished" datetime="2019-06-25T22:28:52+08:00">2019-06-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：<br>    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>分析：<br>    前序遍历序列{1,2,4,7,3,5,6,8}<br>    中序遍历序列{4,7,2,1,5,3,8,6}</p>
+<pre><code>1.根节点1，在中序序列中找到1，左边为左子树，右边为右子树
+2.在前序序列中找到左子树的序号范围，在中序序列中找到左子树序号范围，递归
+3.在前序序列中找到右子树的序号范围，在中序序列中找到右子树序号范围，递归
+</code></pre><p>代码：<br>/**</p>
+<ul>
+<li>Definition for binary tree</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li><p>}<br>*/<br>public class Solution {<br> public TreeNode reConstructBinaryTree(int [] pre,int [] in) {</p>
+<pre><code>//健壮性判断
+if(pre.length!=in.length||pre.length &lt;= 0||in.length &lt;= 0){
+    return null;
+}
+TreeNode node = reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
+return node;
+</code></pre><p> }<br> public TreeNode reConstructBinaryTree(int [] pre,int preStart,int preEnd,int [] in,int inStart,int inEnd){</p>
+<pre><code>   //根节点
+TreeNode root = new TreeNode(pre[preStart]); 
+    //在中序遍历中找到根节点，左边为左子树，右边为右子树
+int leftEnd = 0;
+for(int i = inStart;i &lt;= inEnd;i++){
+    if(in[i] == pre[preStart]){
+        break;
+    }
+    leftEnd++;
+}
+//左子树
+if(leftEnd &gt; 0){
+    //在前序遍历中确定左子树元素的序号
+    int preLeftStart = preStart+1;
+    int preLeftEnd = preStart+leftEnd;
+    //在中序遍历中确定左子树的序号
+    int inLeftStart = inStart;
+    int inLeftEnd = inStart+leftEnd-1;
+    //递归
+    root.left = reConstructBinaryTree(pre,preLeftStart,preLeftEnd,in,inLeftStart,inLeftEnd);
+}
+//右子树
+if((preEnd-preStart)-leftEnd &gt; 0){
+    //在前序遍历中确定右子树元素的序号
+    int preRightStart = preStart+leftEnd+1;
+    int preRightEnd = preEnd;
+    //在中序遍历中确定右子树的序号
+    int inRigthStart = inStart+leftEnd+1;
+    int inRightEnd = inEnd;
+     //递归
+    root.right = reConstructBinaryTree(pre,preRightStart,preRightEnd,in,inRigthStart,inRightEnd);
+
+}
+return root;
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题6-java-：从尾到头打印链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1789,187 +1989,6 @@ public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-113/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/11/leetcode-113/" class="post-title-link" itemprop="url">leetcode_113</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-11 08:50:51 / Modified: 08:51:58" itemprop="dateCreated datePublished" datetime="2019-03-11T08:50:51+08:00">2019-03-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/path-sum-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum-ii/</a></p>
-<p>代码：</p>
-<p>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public List&lt;List<integer>&gt; pathSum(TreeNode root, int sum) {</integer></p>
-<pre><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;&gt;();
-if(root == null){
-    return list;
-}
-List&lt;Integer&gt; currentList = new ArrayList&lt;&gt;();
-currentList.add(root.val);
-traverse(list,currentList,root,sum);
-return list;
-</code></pre><p> }<br> public void traverse(List&lt;List<integer>&gt; list,List<integer> currentList,TreeNode root,int sum){ </integer></integer></p>
-<pre><code>if(root.left == null &amp;&amp; root.right == null){
-    if (root.val == sum){
-        list.add(new ArrayList&lt;&gt;(currentList));
-    }
-    return;
-}
-if(root.left != null){
-    currentList.add(root.left.val);
-    traverse(list,currentList,root.left,sum-root.val);
-    currentList.remove(currentList.size()-1);
-}
-if(root.right != null){
-    currentList.add(root.right.val);
-    traverse(list,currentList,root.right,sum-root.val);
-    currentList.remove(currentList.size()-1);
-}
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2018,7 +2037,7 @@ if(root.right != null){
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

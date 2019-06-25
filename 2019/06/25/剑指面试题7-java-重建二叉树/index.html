@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="题目来源:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ 思路：我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。 常规思维：找中点，二分法 代码：/**  Definition for a binary tree node. pu">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目：    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 分析：    前序遍历序列{1,2,4,7,3,5,6,8}    中序遍历序列{4,7,2,1,5,3,8,6} 1.根节点1，在中序序列中找到1">
+<meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_108">
-<meta property="og:url" content="http://yoursite.com/2019/03/10/leetcode-108/index.html">
+<meta property="og:title" content="剑指面试题7(java):重建二叉树">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="题目来源:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ 思路：我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。 常规思维：找中点，二分法 代码：/**  Definition for a binary tree node. pu">
+<meta property="og:description" content="题目：    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 分析：    前序遍历序列{1,2,4,7,3,5,6,8}    中序遍历序列{4,7,2,1,5,3,8,6} 1.根节点1，在中序序列中找到1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-10T08:10:22.934Z">
+<meta property="og:updated_time" content="2019-06-25T14:33:39.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_108">
-<meta name="twitter:description" content="题目来源:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ 思路：我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。 常规思维：找中点，二分法 代码：/**  Definition for a binary tree node. pu">
+<meta name="twitter:title" content="剑指面试题7(java):重建二叉树">
+<meta name="twitter:description" content="题目：    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 分析：    前序遍历序列{1,2,4,7,3,5,6,8}    中序遍历序列{4,7,2,1,5,3,8,6} 1.根节点1，在中序序列中找到1">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/10/leetcode-108/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>leetcode_108 | Sugar's blog</title>
+  <title>剑指面试题7(java):重建二叉树 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/leetcode-108/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_108
+          <h1 class="post-title" itemprop="name headline">剑指面试题7(java):重建二叉树
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-03-10 15:52:44 / Modified: 16:10:22" itemprop="dateCreated datePublished" datetime="2019-03-10T15:52:44+08:00">2019-03-10</time>
+              <time title="Created: 2019-06-25 22:28:52 / Modified: 22:33:39" itemprop="dateCreated datePublished" datetime="2019-06-25T22:28:52+08:00">2019-06-25</time>
             
 
             
@@ -405,33 +405,61 @@
       
 
       
-        <p>题目来源:<a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/</a></p>
-<p>思路：<br>我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。</p>
-<p>常规思维：找中点，二分法</p>
-<p>代码：<br>/**</p>
+        <p>题目：<br>    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>分析：<br>    前序遍历序列{1,2,4,7,3,5,6,8}<br>    中序遍历序列{4,7,2,1,5,3,8,6}</p>
+<pre><code>1.根节点1，在中序序列中找到1，左边为左子树，右边为右子树
+2.在前序序列中找到左子树的序号范围，在中序序列中找到左子树序号范围，递归
+3.在前序序列中找到右子树的序号范围，在中序序列中找到右子树序号范围，递归
+</code></pre><p>代码：<br>/**</p>
 <ul>
-<li>Definition for a binary tree node.</li>
+<li>Definition for binary tree</li>
 <li>public class TreeNode {</li>
 <li>int val;</li>
 <li>TreeNode left;</li>
 <li>TreeNode right;</li>
 <li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public TreeNode sortedArrayToBST(int[] nums) {</p>
-<pre><code> if(nums.length == 0){
-     return null;
- }
-TreeNode head = sorted(nums,0,nums.length-1);
- return head;
-</code></pre><p> }</p>
-<p> public TreeNode sorted(int []nums,int low,int high){</p>
-<pre><code>if(low &gt; high){
+<li><p>}<br>*/<br>public class Solution {<br> public TreeNode reConstructBinaryTree(int [] pre,int [] in) {</p>
+<pre><code>//健壮性判断
+if(pre.length!=in.length||pre.length &lt;= 0||in.length &lt;= 0){
     return null;
 }
-int mid = (low+high)/2;
-TreeNode node = new TreeNode(nums[mid]);
-node.left = sorted(nums,low,mid-1);
-node.right = sorted(nums,mid+1,high);
+TreeNode node = reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
 return node;
+</code></pre><p> }<br> public TreeNode reConstructBinaryTree(int [] pre,int preStart,int preEnd,int [] in,int inStart,int inEnd){</p>
+<pre><code>   //根节点
+TreeNode root = new TreeNode(pre[preStart]); 
+    //在中序遍历中找到根节点，左边为左子树，右边为右子树
+int leftEnd = 0;
+for(int i = inStart;i &lt;= inEnd;i++){
+    if(in[i] == pre[preStart]){
+        break;
+    }
+    leftEnd++;
+}
+//左子树
+if(leftEnd &gt; 0){
+    //在前序遍历中确定左子树元素的序号
+    int preLeftStart = preStart+1;
+    int preLeftEnd = preStart+leftEnd;
+    //在中序遍历中确定左子树的序号
+    int inLeftStart = inStart;
+    int inLeftEnd = inStart+leftEnd-1;
+    //递归
+    root.left = reConstructBinaryTree(pre,preLeftStart,preLeftEnd,in,inLeftStart,inLeftEnd);
+}
+//右子树
+if((preEnd-preStart)-leftEnd &gt; 0){
+    //在前序遍历中确定右子树元素的序号
+    int preRightStart = preStart+leftEnd+1;
+    int preRightEnd = preEnd;
+    //在中序遍历中确定右子树的序号
+    int inRigthStart = inStart+leftEnd+1;
+    int inRightEnd = inEnd;
+     //递归
+    root.right = reConstructBinaryTree(pre,preRightStart,preRightEnd,in,inRigthStart,inRightEnd);
+
+}
+return root;
 </code></pre><p> }<br>}</p>
 </li>
 </ul>
@@ -458,7 +486,7 @@ return node;
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
           
         </div>
       
@@ -471,8 +499,8 @@ return node;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/10/leetcode-102/" rel="next" title="leetcode_102">
-                <i class="fa fa-chevron-left"></i> leetcode_102
+              <a href="/2019/06/25/剑指面试题6-java-：从尾到头打印链表/" rel="next" title="剑指面试题6(java)：从尾到头打印链表">
+                <i class="fa fa-chevron-left"></i> 剑指面试题6(java)：从尾到头打印链表
               </a>
             
           </div>
@@ -480,10 +508,6 @@ return node;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/10/leetcode-110/" rel="prev" title="leetcode_110">
-                leetcode_110 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
