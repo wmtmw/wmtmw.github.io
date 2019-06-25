@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="分析： ①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。 ②从右上角开始，    若target等于该数，则true；                 若target大于该数，则位于该数下方；                 若target小于该数，则位于该数左侧，row-1； ③边界条件，        要注意查找范围是否为空：array.length&amp;gt;">
+  <meta name="description" content="题目描述：    输入一个链表，按链表值从尾到头的顺序返回一个ArrayList 分析：    ①ArrayList是实现了基于动态数组的数据结构，LinkedList是基于链表的数据结构    ②对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针    ③对于新增和删除操作add和remove，LinkedList比较占优势，因为Array">
 <meta name="keywords" content="剑指offer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指面试题4：二维数组中的查找">
-<meta property="og:url" content="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/index.html">
+<meta property="og:title" content="剑指面试题6(java)：从尾到头打印链表">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/剑指面试题6-java-：从尾到头打印链表/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="分析： ①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。 ②从右上角开始，    若target等于该数，则true；                 若target大于该数，则位于该数下方；                 若target小于该数，则位于该数左侧，row-1； ③边界条件，        要注意查找范围是否为空：array.length&amp;gt;">
+<meta property="og:description" content="题目描述：    输入一个链表，按链表值从尾到头的顺序返回一个ArrayList 分析：    ①ArrayList是实现了基于动态数组的数据结构，LinkedList是基于链表的数据结构    ②对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针    ③对于新增和删除操作add和remove，LinkedList比较占优势，因为Array">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-24T15:17:46.230Z">
+<meta property="og:updated_time" content="2019-06-25T07:06:47.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指面试题4：二维数组中的查找">
-<meta name="twitter:description" content="分析： ①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。 ②从右上角开始，    若target等于该数，则true；                 若target大于该数，则位于该数下方；                 若target小于该数，则位于该数左侧，row-1； ③边界条件，        要注意查找范围是否为空：array.length&amp;gt;">
+<meta name="twitter:title" content="剑指面试题6(java)：从尾到头打印链表">
+<meta name="twitter:description" content="题目描述：    输入一个链表，按链表值从尾到头的顺序返回一个ArrayList 分析：    ①ArrayList是实现了基于动态数组的数据结构，LinkedList是基于链表的数据结构    ②对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针    ③对于新增和删除操作add和remove，LinkedList比较占优势，因为Array">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/25/剑指面试题6-java-：从尾到头打印链表/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>剑指面试题4：二维数组中的查找 | Sugar's blog</title>
+  <title>剑指面试题6(java)：从尾到头打印链表 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题6-java-：从尾到头打印链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">剑指面试题4：二维数组中的查找
+          <h1 class="post-title" itemprop="name headline">剑指面试题6(java)：从尾到头打印链表
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-06-24 23:10:56 / Modified: 23:17:46" itemprop="dateCreated datePublished" datetime="2019-06-24T23:10:56+08:00">2019-06-24</time>
+              <time title="Created: 2019-06-25 14:57:44 / Modified: 15:06:47" itemprop="dateCreated datePublished" datetime="2019-06-25T14:57:44+08:00">2019-06-25</time>
             
 
             
@@ -405,37 +405,25 @@
       
 
       
-        <p>分析：</p>
-<pre><code>①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。
-②从右上角开始，    若target等于该数，则true；
-                若target大于该数，则位于该数下方；
-                若target小于该数，则位于该数左侧，row-1；
-③边界条件，        要注意查找范围是否为空：array.length&gt;0
-                遍历到左上角或者左下角或者右下角。所以是row=array.length-1,col=0;
+        <p>题目描述：<br>    输入一个链表，按链表值从尾到头的顺序返回一个ArrayList</p>
+<p>分析：<br>    ①ArrayList是实现了基于动态数组的数据结构，LinkedList是基于链表的数据结构<br>    ②对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针<br>    ③对于新增和删除操作add和remove，LinkedList比较占优势，因为ArrayList要移动数据。</p>
+<pre><code>所以显然，遍历链表，使用LinkedList保存链表中的值（addFirst），保存完后不断remove，就是从尾到头的顺序。按照书本是打印，而这里是保存到ArrayList中。
 
 
-public class Solution {
-public boolean Find(int target, int [][] array) {
-if (array.length&lt;=0){
-    return false;
-}
-//右上角的点
-int row = 0;
-int col = array[0].length-1;
-while(row &lt; array.length &amp;&amp; col &gt;= 0){
-    if(target == array[row][col]){
-        return true;
-    }
-    if(target &lt; array[row][col]){
-        col--;
-    }
-    else{
-        row++;
-    }
-}
-    return false;
-}
-</code></pre><p>}</p>
+/**
+</code></pre><ul>
+<li>public class ListNode {</li>
+<li>int val;</li>
+<li>ListNode next = null;<br>*</li>
+<li>ListNode(int val) {</li>
+<li>this.val = val;</li>
+<li>}</li>
+<li>}<br><em>
+</em>/<br>import java.util.LinkedList;<br>import java.util.ArrayList;<br>public class Solution {<br>public ArrayList<integer> printListFromTailToHead(ListNode listNode) {<br>   LinkedList<integer> ll = new LinkedList<integer>();<br>   while(listNode != null){<pre><code>ll.addFirst(listNode.val);
+listNode = listNode.next;
+</code></pre>   }<br>   ArrayList<integer> al = new ArrayList<integer>();<br>   while(!ll.isEmpty()){<pre><code>al.add(ll.remove());
+</code></pre>   }<br>   return al;<br>}<br>}</integer></integer></integer></integer></integer></li>
+</ul>
 
       
     </div>
@@ -472,8 +460,8 @@ while(row &lt; array.length &amp;&amp; col &gt;= 0){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/14/leetcode-235/" rel="next" title="leetcode_235">
-                <i class="fa fa-chevron-left"></i> leetcode_235
+              <a href="/2019/06/25/剑指面试题5：替换空格/" rel="next" title="剑指面试题5：替换空格">
+                <i class="fa fa-chevron-left"></i> 剑指面试题5：替换空格
               </a>
             
           </div>
@@ -481,10 +469,6 @@ while(row &lt; array.length &amp;&amp; col &gt;= 0){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/25/剑指面试题5：替换空格/" rel="prev" title="剑指面试题5：替换空格">
-                剑指面试题5：替换空格 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
