@@ -319,6 +319,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/剑指面试题10-java-斐波那契数列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/21/剑指面试题10-java-斐波那契数列/" class="post-title-link" itemprop="url">剑指面试题10-java-斐波那契数列</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-21 21:30:15 / Modified: 21:33:36" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:15+08:00">2019-08-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39</p>
+<p>递归很慢</p>
+<p>解题思路：避免重复计算，把已经计算过的中间项保存下来。</p>
+<p>具体代码：<br>public class Solution {<br>    public int Fibonacci(int n) {<br>        int f0 = 0;<br>        int f1 = 1;<br>        int f = 0;<br>        if(n == 0){<br>            return 0;<br>        }else if(n == 1){<br>            return 1;<br>        }else{<br>            for(int i = 2;i &lt;=n;i++){<br>                f = f0+f1;<br>                f0 = f1;<br>                f1 = f;<br>            }<br>            return f;<br>        }</p>
+<pre><code>}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1844,151 +1992,6 @@ public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-118/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/11/leetcode-118/" class="post-title-link" itemprop="url">leetcode_118</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-11 09:27:05 / Modified: 09:32:21" itemprop="dateCreated datePublished" datetime="2019-03-11T09:27:05+08:00">2019-03-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/pascals-triangle/" target="_blank" rel="noopener">https://leetcode.com/problems/pascals-triangle/</a></p>
-<p>思路：动态规划</p>
-<p>代码：<br>class Solution {<br>    public List&lt;List<integer>&gt; generate(int numRows) {<br>        List&lt;List<integer>&gt; list = new ArrayList&lt;List<integer>&gt;();<br>        //若只有零行<br>        if(numRows == 0){<br>            return list;<br>        }<br>        //第一行元素总为1<br>        list.add(new ArrayList&lt;&gt;());<br>        list.get(0).add(1);<br>        for(int rowNum = 1;rowNum&lt;numRows;rowNum++){<br>            List<integer> row = new ArrayList&lt;&gt;();<br>            List<integer> prevRow = list.get(rowNum-1);<br>            //每行第一个元素都为1<br>            row.add(1);<br>            for(int j = 1;j &lt; rowNum;j++){<br>                row.add(prevRow.get(j-1)+prevRow.get(j));<br>            }<br>            //每行最后一个元素为1<br>            row.add(1);<br>            list.add(row);<br>        }<br>        return list;<br>    }<br>}</integer></integer></integer></integer></integer></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2037,7 +2040,7 @@ public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2060,7 +2063,9 @@ public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
