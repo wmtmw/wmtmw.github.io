@@ -319,6 +319,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/leetcode-119/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/12/leetcode-119/" class="post-title-link" itemprop="url">leetcode_119</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-12 08:37:48 / Modified: 08:59:34" itemprop="dateCreated datePublished" datetime="2019-03-12T08:37:48+08:00">2019-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目来源：<a href="https://leetcode.com/problems/pascals-triangle-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/pascals-triangle-ii/</a></p>
+<p>这道题目有点意思，118题是要得到所有行，而这道题是输出给定行。也就是说，这个变化我们直接在ArrayList里面做就行，不需要全部存储起来。</p>
+<p>规律是：<br>1<br>11<br>121<br>1331<br>14641<br>…<br>首先，前两行需要给定，也就是<br>if(rowIndex &gt;= 0) result.add(1);<br>if(rowIndex &gt;= 1) result.add(1);</p>
+<p>而每一行最后一个元素也是1，这在确定了别的元素之后加上，就可以了。</p>
+<p>很显然我们会用到<br>result.get(j)+result.get(j-1);//具体j指代什么再说。</p>
+<p>第三行：<br>2=result.get(1)+result.get(0);</p>
+<p>第四行：<br>第一个3 = result.get(1)+result.get(0);<br>这个时候result存的数据就变成了：[1,3,1]<br>这个时候我们就得不到第二个3了，所以显然，这个变化要从后往前做：<br>第二个3 = result.get(2)+result.get(1);<br>第一个3 = result.get(1)+result.get(0);</p>
+<p>而我们需要的是从第二行开始一行一行变化，所以设两个循环</p>
+<p>for(int i = 2，i &lt;= rowIndex;i++){<br>//从第二行开始<br>    for(int j = i-1,j&gt;0;j–){<br>    //从后往前<br>    result.set(j,result.get(j)+result.get(j-1));<br>}<br>    //最后一个元素为1<br>    result.add(1);<br>}</p>
+<p>完整代码：<br>class Solution {<br>    public List<integer> getRow(int rowIndex) {<br>        List<integer> result = new ArrayList&lt;&gt;();<br>        if(rowIndex &gt;= 0){<br>            result.add(1);<br>        }<br>        if(rowIndex &gt;= 1){<br>            result.add(1);<br>        }<br>        if(rowIndex &gt;= 2){<br>            for(int i = 2;i &lt;rowIndex+1;i++){<br>                for(int j = i-1;j &gt; 0;j–){<br>                    result.set(j,result.get(j)+result.get(j-1));<br>                }<br>                result.add(1);<br>            }<br>        }<br>        return result;<br>    }<br>}</integer></integer></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-118/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1836,167 +1988,6 @@ else{
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/leetcode-101/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/leetcode-101/" class="post-title-link" itemprop="url">leetcode_101</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-08 11:41:05 / Modified: 11:52:49" itemprop="dateCreated datePublished" datetime="2019-03-08T11:41:05+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>思路：<br>若左子树与右子树是镜像，需满足：<br>①根节点值相同<br>②左子树的左子树与右子树的右子树相同；左子树的右子树与右子树的左子树相同</p>
-<p>代码：<br>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li>}<br>*/<br>class Solution {<br> public boolean isSymmetric(TreeNode root) {<pre><code>return isMirror(root,root);
-</code></pre> }<br> public boolean isMirror(TreeNode t1,TreeNode t2){<pre><code>if(t1 == null &amp;&amp; t2 == null){
-    return true;
-}
-if(t1 == null || t2 == null){
-    return false;
-}
-return (t1.val == t2.val) &amp;&amp; (isMirror(t1.left,t2.right)) &amp;&amp; (isMirror(t1.right,t2.left));
-</code></pre> }<br>}</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2045,7 +2036,7 @@ return (t1.val == t2.val) &amp;&amp; (isMirror(t1.left,t2.right)) &amp;&amp; (is
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

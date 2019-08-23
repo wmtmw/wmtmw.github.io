@@ -96,21 +96,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="题目：给定一个矩阵，给定一组字符串，判断矩阵中是否存在一条包含字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以再矩阵中向左向右向上向下移动，但不能两次经过格子。 思路：①因为不能两次进入一个格子，所以需要一个和原始矩阵同维度的flag矩阵标识该格子是否可以进入。boolean[] flag = new boolean[matrix.length];for(int i = 0;i">
+<meta name="keywords" content="剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指面试题12-java-矩阵中的路径">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/剑指面试题12-java-矩阵中的路径/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
+<meta property="og:description" content="题目：给定一个矩阵，给定一组字符串，判断矩阵中是否存在一条包含字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以再矩阵中向左向右向上向下移动，但不能两次经过格子。 思路：①因为不能两次进入一个格子，所以需要一个和原始矩阵同维度的flag矩阵标识该格子是否可以进入。boolean[] flag = new boolean[matrix.length];for(int i = 0;i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-25T12:09:43.700Z">
+<meta property="og:updated_time" content="2019-08-23T09:56:14.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="剑指面试题12-java-矩阵中的路径">
+<meta name="twitter:description" content="题目：给定一个矩阵，给定一组字符串，判断矩阵中是否存在一条包含字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以再矩阵中向左向右向上向下移动，但不能两次经过格子。 思路：①因为不能两次进入一个格子，所以需要一个和原始矩阵同维度的flag矩阵标识该格子是否可以进入。boolean[] flag = new boolean[matrix.length];for(int i = 0;i">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/23/剑指面试题12-java-矩阵中的路径/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>tags | Sugar's blog</title>
+  <title>剑指面试题12-java-矩阵中的路径 | Sugar's blog</title>
   
 
 
@@ -240,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -299,99 +303,191 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/剑指面试题12-java-矩阵中的路径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">剑指面试题12-java-矩阵中的路径
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              5 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/communication/" style="font-size: 12px; color: #ccc">communication</a> <a href="/tags/leetcode/" style="font-size: 30px; color: #111">leetcode</a> <a href="/tags/剑指/" style="font-size: 12px; color: #ccc">剑指</a> <a href="/tags/剑指offer/" style="font-size: 21px; color: #6f6f6f">剑指offer</a> <a href="/tags/随笔/" style="font-size: 12px; color: #ccc">随笔</a>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-23 16:58:01 / Modified: 17:56:14" itemprop="dateCreated datePublished" datetime="2019-08-23T16:58:01+08:00">2019-08-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>题目：给定一个矩阵，给定一组字符串，判断矩阵中是否存在一条包含字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以再矩阵中向左向右向上向下移动，但不能两次经过格子。</p>
+<p>思路：<br>①因为不能两次进入一个格子，所以需要一个和原始矩阵同维度的flag矩阵标识该格子是否可以进入。<br>boolean[] flag = new boolean[matrix.length];<br>for(int i = 0;i &lt; matrix.length;i++){<br>    flag[i] = true; //初始值全为true<br>}</p>
+<p>②首先遍历矩阵，直到在矩阵中找到与字符串第一个值匹配的值，若找不到，则不存在路径满足。</p>
+<p>③匹配到第i个字符所在的位置，寻找其上下左右，是否有一个位置的字符与第i+1个字符匹配</p>
+<p>具体过程：<br>    i）先匹配(上)：是否匹配，匹配，该位置置为false，重复③直到匹配完字符串中的所有字符；否则，该位置重新置为true，匹配(下);</p>
+<pre><code>ii）若匹配完上下左右，均无法匹配，则不存在一条路径满足要求，return false。
+</code></pre><p>④注意越界判断，不可进入判断，不匹配判断。</p>
+<p>我们可以看到i是一个自己调用自己的过程，独立使用一个函数，使用递归处理。</p>
+<p>代码：<br>public class Solution {<br>    public boolean hasPath(char[] matrix, int rows, int cols, char[] str)<br>    {<br>        //建立一个flag矩阵<br>        boolean[] flag = new boolean[matrix.length];<br>        for(int i = 0;i &lt; matrix.length;i++){<br>            flag[i] = true;<br>        }<br>        //寻找第一个匹配字符的位置<br>        for(int i = 0;i &lt; rows;i++){<br>        for(int j = 0;j &lt; cols;j++){<br>        if(isKeXing(matrix, rows, cols,i,j,str,0,flag)){<br>            return true;<br>        }<br>    }<br>    }<br>    return false;<br>    }<br>    //递归判断路径是否可行<br>    public boolean isKeXing(char[] matrix, int rows, int cols,int i,int j, char[] str,int index,boolean[] flag){<br>    //对应矩阵中的位置<br>    int ind = i*cols+j;<br>    //判断对应位置是否越界，是否与需要匹配的字符不相等，是否不能进入<br>    if(i&lt;0||i&gt;=rows||j&lt;0||j&gt;=cols||matrix[ind]!=str[index]||flag[ind]==false){<br>        return false;<br>        }</p>
+<pre><code>//如果通过上述if，则将该位置置为false
+flag[ind] = false;
+//如果已经匹配完最后一个值了，则存在该路径
+if(index == str.length-1){
+    return true;
+}
+//递归判断是否存在该路径
+if(isKeXing(matrix, rows, cols,i-1,j,str,index+1,flag)||isKeXing(matrix, rows, cols,i+1,j,str,index+1,flag)||isKeXing(matrix, rows, cols,i,j-1,str,index+1,flag)||isKeXing(matrix, rows, cols,i,j+1,str,index+1,flag)){
+    return true;
+}
+//若上下左右都不可行
+flag[ind] = true;
+return false;
+</code></pre><p>}<br>}</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/21/剑指面试题10-java-斐波那契数列/" rel="next" title="剑指面试题10-java-斐波那契数列">
+                <i class="fa fa-chevron-left"></i> 剑指面试题10-java-斐波那契数列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
