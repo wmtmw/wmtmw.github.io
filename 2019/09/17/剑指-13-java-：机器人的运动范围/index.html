@@ -96,25 +96,24 @@
 
 
 
-  <meta name="description" content="题目来源:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ 思路：我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。 常规思维：找中点，二分法 代码：/**  Definition for a binary tree node. pu">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="public class Solution {    int count = 0;    public int movingCount(int threshold, int rows, int cols)    {        if(threshold&amp;lt;0||rows&amp;lt;=0||cols&amp;lt;=0){            return 0;        }        bool">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_108">
-<meta property="og:url" content="http://yoursite.com/2019/03/10/leetcode-108/index.html">
+<meta property="og:title" content="剑指#13(java)：机器人的运动范围">
+<meta property="og:url" content="http://yoursite.com/2019/09/17/剑指-13-java-：机器人的运动范围/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="题目来源:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ 思路：我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。 常规思维：找中点，二分法 代码：/**  Definition for a binary tree node. pu">
+<meta property="og:description" content="public class Solution {    int count = 0;    public int movingCount(int threshold, int rows, int cols)    {        if(threshold&amp;lt;0||rows&amp;lt;=0||cols&amp;lt;=0){            return 0;        }        bool">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-10T08:10:22.934Z">
+<meta property="og:updated_time" content="2019-09-18T01:19:13.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode_108">
-<meta name="twitter:description" content="题目来源:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ 思路：我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。 常规思维：找中点，二分法 代码：/**  Definition for a binary tree node. pu">
+<meta name="twitter:title" content="剑指#13(java)：机器人的运动范围">
+<meta name="twitter:description" content="public class Solution {    int count = 0;    public int movingCount(int threshold, int rows, int cols)    {        if(threshold&amp;lt;0||rows&amp;lt;=0||cols&amp;lt;=0){            return 0;        }        bool">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/10/leetcode-108/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/17/剑指-13-java-：机器人的运动范围/">
 
 
 
@@ -124,7 +123,7 @@
   };
 </script>
 
-  <title>leetcode_108 | Sugar's blog</title>
+  <title>剑指#13(java)：机器人的运动范围 | Sugar's blog</title>
   
 
 
@@ -323,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/leetcode-108/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/剑指-13-java-：机器人的运动范围/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode_108
+          <h1 class="post-title" itemprop="name headline">剑指#13(java)：机器人的运动范围
 
               
             
@@ -366,12 +365,24 @@
                 
               
 
-              <time title="Created: 2019-03-10 15:52:44 / Modified: 16:10:22" itemprop="dateCreated datePublished" datetime="2019-03-10T15:52:44+08:00">2019-03-10</time>
+              <time title="Created: 2019-09-17 22:14:08" itemprop="dateCreated datePublished" datetime="2019-09-17T22:14:08+08:00">2019-09-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-18 09:19:13" itemprop="dateModified" datetime="2019-09-18T09:19:13+08:00">2019-09-18</time>
               
             
           </span>
@@ -405,36 +416,33 @@
       
 
       
-        <p>题目来源:<a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/</a></p>
-<p>思路：<br>我最开始是想从子节点往根节点做，后来发现，太困难了，好像用不了递归（因为节点命名的原因），所以还是乖乖从根节点往下做。</p>
-<p>常规思维：找中点，二分法</p>
-<p>代码：<br>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public TreeNode sortedArrayToBST(int[] nums) {</p>
-<pre><code> if(nums.length == 0){
-     return null;
- }
-TreeNode head = sorted(nums,0,nums.length-1);
- return head;
-</code></pre><p> }</p>
-<p> public TreeNode sorted(int []nums,int low,int high){</p>
-<pre><code>if(low &gt; high){
-    return null;
+        <p>public class Solution {<br>    int count = 0;<br>    public int movingCount(int threshold, int rows, int cols)<br>    {<br>        if(threshold&lt;0||rows&lt;=0||cols&lt;=0){<br>            return 0;<br>        }<br>        boolean visited[] = new boolean[rows<em>cols];<br>        for(int i = 0;i&lt;rows</em>cols;++i){<br>            visited[i] = false;<br>        }<br>        count = movingCountCore(threshold,rows,cols,0,0,visited);<br>        return count;<br>    }<br>    public int movingCountCore(int threshold,int rows,int  cols,int row,int col,boolean visited[]){</p>
+<pre><code>    if(check(threshold,rows,cols,row,col,visited)){
+        visited[row*cols+col] = true;
+       // count = 1+movingCountCore(threshold,rows,cols,row-1,col,visited)+movingCountCore(threshold,rows,cols,row,col-1,visited)+movingCountCore(threshold,rows,cols,row+1,col,visited)+movingCountCore(threshold,rows,cols,row,col+1,visited);
+        count++;
+        movingCountCore(threshold,rows,cols,row-1,col,visited);
+        movingCountCore(threshold,rows,cols,row,col-1,visited);
+        movingCountCore(threshold,rows,cols,row+1,col,visited);
+        movingCountCore(threshold,rows,cols,row,col+1,visited);
+    }
+    return count;
 }
-int mid = (low+high)/2;
-TreeNode node = new TreeNode(nums[mid]);
-node.left = sorted(nums,low,mid-1);
-node.right = sorted(nums,mid+1,high);
-return node;
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
+public boolean check(int threshold,int rows,int cols,int row,int col,boolean visited[]){
+    if(row&gt;=0&amp;&amp;row&lt;rows&amp;&amp;col&gt;=0&amp;&amp;col&lt;cols&amp;&amp;getDigitSum(row)+getDigitSum(col)&lt;=threshold&amp;&amp;!visited[row*cols+col]){
+        return true;
+    }
+    return false;
+}
+public int getDigitSum(int num){
+    int sum = 0;
+    while(num &gt; 0){
+        sum += num %10;
+        num/=10;
+    }
+    return sum;
+}
+</code></pre><p>}</p>
 
       
     </div>
@@ -456,12 +464,6 @@ return node;
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-          
-        </div>
-      
 
       
       
@@ -471,8 +473,8 @@ return node;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/10/leetcode-102/" rel="next" title="leetcode_102">
-                <i class="fa fa-chevron-left"></i> leetcode_102
+              <a href="/2019/08/23/剑指面试题12-java-矩阵中的路径/" rel="next" title="剑指面试题12-java-矩阵中的路径">
+                <i class="fa fa-chevron-left"></i> 剑指面试题12-java-矩阵中的路径
               </a>
             
           </div>
@@ -481,8 +483,8 @@ return node;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/10/leetcode-110/" rel="prev" title="leetcode_110">
-                leetcode_110 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/17/剑指面试题18-java-删除列表中重复节点/" rel="prev" title="剑指面试题18-java-删除列表中重复节点">
+                剑指面试题18-java-删除列表中重复节点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

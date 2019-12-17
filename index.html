@@ -319,6 +319,336 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/剑指面试题18-java-删除列表中重复节点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/17/剑指面试题18-java-删除列表中重复节点/" class="post-title-link" itemprop="url">剑指面试题18-java-删除列表中重复节点</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-17 08:47:43 / Modified: 08:50:33" itemprop="dateCreated datePublished" datetime="2019-12-17T08:47:43+08:00">2019-12-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目描述:<br>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5</p>
+<p>思路：<br>1.如果头节点是重复节点，则从第一个不重复节点开始<br>2.如果头节点不是重复节点，则头节点指向下一个不重复的节点，返回头节点。</p>
+<p>代码：<br>/*<br> public class ListNode {<br>    int val;<br>    ListNode next = null;</p>
+<pre><code>ListNode(int val) {
+    this.val = val;
+}
+</code></pre><p>}<br>*/<br>public class Solution {<br>    public ListNode deleteDuplication(ListNode pHead)<br>    {<br>        //健壮性判断：如果列表为空或者只有一个节点，则返回该列表<br>        if(pHead == null||pHead.next == null){<br>            return pHead;<br>        }<br>        ListNode right = pHead.next;<br>        if(right!=null&amp;&amp;right.val == pHead.val){<br>             //1.如果头节点是重复节点，则从第一个不重复节点开始<br>            while(right!=null&amp;&amp;right.val == pHead.val){<br>                right = right.next;<br>            }<br>            return deleteDuplication(right);<br>        }else{<br>            //2.如果头节点不是重复节点，则头节点指向下一个不重复的节点，返回头节点。<br>            pHead.next = deleteDuplication(right);<br>            return pHead;<br>        }<br>    }<br>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/剑指-13-java-：机器人的运动范围/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/17/剑指-13-java-：机器人的运动范围/" class="post-title-link" itemprop="url">剑指#13(java)：机器人的运动范围</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-17 22:14:08" itemprop="dateCreated datePublished" datetime="2019-09-17T22:14:08+08:00">2019-09-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-18 09:19:13" itemprop="dateModified" datetime="2019-09-18T09:19:13+08:00">2019-09-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>public class Solution {<br>    int count = 0;<br>    public int movingCount(int threshold, int rows, int cols)<br>    {<br>        if(threshold&lt;0||rows&lt;=0||cols&lt;=0){<br>            return 0;<br>        }<br>        boolean visited[] = new boolean[rows<em>cols];<br>        for(int i = 0;i&lt;rows</em>cols;++i){<br>            visited[i] = false;<br>        }<br>        count = movingCountCore(threshold,rows,cols,0,0,visited);<br>        return count;<br>    }<br>    public int movingCountCore(int threshold,int rows,int  cols,int row,int col,boolean visited[]){</p>
+<pre><code>    if(check(threshold,rows,cols,row,col,visited)){
+        visited[row*cols+col] = true;
+       // count = 1+movingCountCore(threshold,rows,cols,row-1,col,visited)+movingCountCore(threshold,rows,cols,row,col-1,visited)+movingCountCore(threshold,rows,cols,row+1,col,visited)+movingCountCore(threshold,rows,cols,row,col+1,visited);
+        count++;
+        movingCountCore(threshold,rows,cols,row-1,col,visited);
+        movingCountCore(threshold,rows,cols,row,col-1,visited);
+        movingCountCore(threshold,rows,cols,row+1,col,visited);
+        movingCountCore(threshold,rows,cols,row,col+1,visited);
+    }
+    return count;
+}
+public boolean check(int threshold,int rows,int cols,int row,int col,boolean visited[]){
+    if(row&gt;=0&amp;&amp;row&lt;rows&amp;&amp;col&gt;=0&amp;&amp;col&lt;cols&amp;&amp;getDigitSum(row)+getDigitSum(col)&lt;=threshold&amp;&amp;!visited[row*cols+col]){
+        return true;
+    }
+    return false;
+}
+public int getDigitSum(int num){
+    int sum = 0;
+    while(num &gt; 0){
+        sum += num %10;
+        num/=10;
+    }
+    return sum;
+}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/剑指面试题12-java-矩阵中的路径/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1635,376 +1965,6 @@ return res;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/leetcode-226/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/12/leetcode-226/" class="post-title-link" itemprop="url">leetcode_226</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-12 10:49:02" itemprop="dateCreated datePublished" datetime="2019-03-12T10:49:02+08:00">2019-03-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-14 14:56:01" itemprop="dateModified" datetime="2019-03-14T14:56:01+08:00">2019-03-14</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/invert-binary-tree/</a></p>
-<p>审题：也就是左右子树交换，采用递归法</p>
-<p>代码：<br>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li>}<br>*/<br>class Solution {<br> public TreeNode invertTree(TreeNode root) {<pre><code>if(root == null){
-    return null;
-}
-TreeNode right = invertTree(root.right);
-TreeNode left = invertTree(root.left);
-root.left = right;
-root.right = left;
-return root;
-</code></pre> }<br>}</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/leetcode-120/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/12/leetcode-120/" class="post-title-link" itemprop="url">leetcode_120</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-12 09:42:21 / Modified: 10:48:47" itemprop="dateCreated datePublished" datetime="2019-03-12T09:42:21+08:00">2019-03-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源:<a href="https://leetcode.com/problems/triangle/" target="_blank" rel="noopener">https://leetcode.com/problems/triangle/</a></p>
-<p>审题：每一步可以移动到下一行的相邻位置</p>
-<p>举例：</p>
-<pre><code>    [2]
-  [3,4]
- [6,5,7]
-[4,1,8,3]
-
-路径：2→3或2→4
-     2→3→6或2→3→5或2→4→5或2→4→7
-     2→3→6→4或2→3→6→1或2→3→5→1或2→3→5→8或2→4→5→1或2→4→5→8或2→4→7→8或2→4→7→3
-
-从后往前路径：
-4→6或1→6或1→5或8→5或8→7或3→7
-4→6→3或1→6→3或1→5→3或1→5→4或8→5→3或8→5→4或8→7→4或3→7→4
-最后在加2
-
-用动态规划，从下往上递归处理，因为从下往上的映射唯一，下一行两个数只能和上一行中的一个数相加。因此，我们找下一行相邻两个数的最小值，与上一行数相加。
-
-A[0]=4,A[1]=1,A[2]=8,A[3]=3
-
-①
-   [2]
-  [3,4]
- [7,6,10]   
-[4,1,8,3]      A[0]=7,A[1]=6,A[2]=10,A[3]=3 
-
-②
-   [2]
-  [9,10]
- [7,6,10]   
-[4,1,8,3]      A[0]=9,A[1]=10,A[2]=10,A[3]=3
-
-③
-   [11]
-  [9,10]
- [7,6,10]   
-[4,1,8,3]       A[0]=11,A[1]=10,A[2]=10,A[3]=3
-
-
-具体代码：
-class Solution {
-public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
-    int len = triangle.size();
-    int []A = new int[len+1];
-    for(int i = len - 1;i &gt;= 0;i-- ){
-        for(int j = 0;j &lt; triangle.get(i).size();j++){
-            A[j] = Math.min(A[j],A[j+1]) +  triangle.get(i).get(j);
-        }
-    }
-    return A[0];
-}
-</code></pre><p>}</p>
-<p>更直观：<br>class Solution {<br>    public int minimumTotal(List&lt;List<integer>&gt; triangle) {<br>        int len = triangle.size();<br>        for(int i = len - 2; i &gt;= 0;i–){<br>        for(int j = 0;j &lt;= i;j++){<br>        triangle.set(j,triangle.get(i).get(j)+ Math.min(triangle.get(i+1).get(j)+triangle.get(i+1).get(j+1)));<br>    }<br>    }<br>        return triangle.get(0).get(0);<br>    }<br>}</integer></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2053,7 +2013,7 @@ public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
