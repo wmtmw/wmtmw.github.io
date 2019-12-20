@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/spring04/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/剑指面试题21-java-调整数组顺序使奇数位于偶数前面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -339,7 +339,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/12/17/spring04/" class="post-title-link" itemprop="url">spring04</a>
+                <a href="/2019/12/20/剑指面试题21-java-调整数组顺序使奇数位于偶数前面/" class="post-title-link" itemprop="url">剑指面试题21-java-调整数组顺序使奇数位于偶数前面</a>
               
             
           </h1>
@@ -364,9 +364,13 @@
                 
               
 
-              <time title="Created: 2019-12-17 22:24:29" itemprop="dateCreated datePublished" datetime="2019-12-17T22:24:29+08:00">2019-12-17</time>
+              <time title="Created: 2019-12-20 11:45:26 / Modified: 11:59:03" itemprop="dateCreated datePublished" datetime="2019-12-20T11:45:26+08:00">2019-12-20</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -401,7 +405,34 @@
       
         
           
-            
+            <p>题目：输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<p>若不需要保证相对位置不变，则可以使用做法二，此时不需要开辟新空间</p>
+<p>保证相对顺序的思路：<br>①创建一个新数组，数组大小与原数组相等。<br>②遍历原始数组，若为奇数，则保存在原始数组中；若为偶数，则保存在新数组中。<br>③遍历结束后，将新数组按顺序添加到原始数组奇数后</p>
+<hr>
+<p>做法一：<br>public class Solution {<br>    public void reOrderArray(int [] array) {<br>        //如果数组为空或者数组元素小于2，则不需要重排<br>        if(array == null || array.length&lt;2){<br>            return;<br>        }</p>
+<pre><code>    int oddIndex = 0;
+    int evenIndex = 0;
+    int[] arrayEven = new int[array.length];
+  //创建一个新数组，遍历原始数组，奇数按顺序保留在原始数组中，偶数按顺序添加到新数组中，遍历结束后，将新数组复制到原数组中
+    for(int i = 0;i &lt; array.length;i++){
+        if((array[i]&amp;1)!=0){
+            array[oddIndex]=array[i];
+            oddIndex++;
+        }else{
+            arrayEven[evenIndex]=array[i];
+            evenIndex++;
+        }
+    }
+    evenIndex=0;
+    for(int i = oddIndex;i&lt;array.length;i++){
+        array[i]=arrayEven[evenIndex];
+        evenIndex++;
+    }
+}
+</code></pre><p>}</p>
+<hr>
+<p>做法二：不保证相对顺序<br>public class Solution {<br>    public void reOrderArray(int [] array) {<br>        //如果数组为空或者数组元素小于2，则不需要重排<br>        if(array == null || array.length&lt;2){<br>            return;<br>        }<br>        //设置两个索引，一个位于数组首位，一个位于数组末尾。<br>        int oddIndex = 0;<br>        int evenIndex = array.length-1;<br>       while(oddIndex&lt;evenIndex){<br>        while(oddIndex&lt;evenIndex&amp;&amp;(array[oddIndex]&amp;1)!=0){<br>            oddIndex++;<br>        }<br>        while(oddIndex&lt;evenIndex&amp;&amp;(array[evenIndex]&amp;1)==0){<br>            evenIndex–;<br>        }<br>           if(oddIndex&lt;evenIndex){<br>               int temp = array[evenIndex];<br>               array[evenIndex]=array[oddIndex];<br>               array[oddIndex]=temp;<br>           }<br>       }<br>    }<br>}</p>
+
           
         
       
@@ -457,7 +488,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/spring03/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/18/剑指面试题19-java-正则表达式匹配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -477,7 +508,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/12/17/spring03/" class="post-title-link" itemprop="url">spring03</a>
+                <a href="/2019/12/18/剑指面试题19-java-正则表达式匹配/" class="post-title-link" itemprop="url">剑指面试题19-java-正则表达式匹配</a>
               
             
           </h1>
@@ -502,7 +533,152 @@
                 
               
 
-              <time title="Created: 2019-12-17 22:24:23" itemprop="dateCreated datePublished" datetime="2019-12-17T22:24:23+08:00">2019-12-17</time>
+              <time title="Created: 2019-12-18 10:02:30 / Modified: 10:18:33" itemprop="dateCreated datePublished" datetime="2019-12-18T10:02:30+08:00">2019-12-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：<br>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。<br>模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含0次）。<br>举例：字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配</p>
+<p>思路：<br>1.模式第二个字符为’<em>‘<br>    若字符串不为空，则有三种匹配模式<br>    ① aaa与b</em>，两者第一个字符不匹配，则字符串Index不动，模式Index后移两位，相当于x<em>匹配零个字符<br>    ② aaa与a</em>或者.<em>：<br>        两者第一个字符匹配，则字符串Index后移一位，模式Index后移两位<br>        两者第一个字符匹配，字符串Index后移一位，模式Index不动，字符串的下一个字符继续匹配模式的第一个字符。<br>    字符串为空，pattern不为空时，比如””和”x</em>“/“x<em>x</em>“匹配<br>        此时字符串Index不动，模式Index后移两位<br>2.模式第二个字符不为’*’<br>    若字符串未匹配到串尾，若两者第一个字符匹配（两者相等，或者pattern第一位为’.’），则两者均后移一位继续匹配，否则，返回false</p>
+<p>代码：<br>public class Solution {<br>    public boolean match(char[] str, char[] pattern)<br>    {<br>        //1.如果两者都为空，则返回true<br>        if(str == null &amp;&amp; pattern == null){<br>            return true;<br>        }<br>        //2.如果str不为空，pattern为空，则返回false<br>        if(str != null &amp;&amp; pattern == null){<br>            return false;<br>        }<br>        //如果两者不为空，或者str为空，pattern不为空（比如pattern = b<em>）<br>        return Core(str,pattern,0,0);<br>    }<br>    public boolean Core(char[] str, char[] pattern,int strIndex,int patternIndex){<br>        //结束条件：pattern和str都遍历完成<br>        if(patternIndex == pattern.length &amp;&amp; strIndex == str.length){<br>            return true;<br>        }<br>        //如果pattern遍历完了，但str没有遍历完，则为false<br>        if(patternIndex == pattern.length &amp;&amp; strIndex != str.length){<br>            return false;<br>        }<br>        //当模式中的第二个字符是“</em>”<br>        //字符串第1个和模式第1个匹配，则分3种匹配模式<br>        if(patternIndex+1&lt;pattern.length &amp;&amp; pattern[patternIndex+1]==’<em>‘){<br>            if((strIndex!=str.length &amp;&amp; pattern[patternIndex] == str[strIndex])||(strIndex!=str.length &amp;&amp; pattern[patternIndex] == ‘.’)){<br>                return Core(str,pattern,strIndex,patternIndex+2) //模式后移两位，相当于x</em>匹配0个字符(aaa与b<em>)<br>                    ||Core(str,pattern,strIndex+1,patternIndex+2) //字符串后移一位，模式后移两位，相当于匹配一个字符（aaa与a</em>或者.<em>）<br>                    ||Core(str,pattern,strIndex+1,patternIndex); //再匹配字符串中的下一个<br>            }else{<br>                return Core(str,pattern,strIndex,patternIndex+2);  //当str为空，则strIndex == str.length,但与x</em>仍然匹配！<br>            }<br>        }<br>        //当模式中的第二个字符不是“*”，若两者第一个匹配，则都后移以为，否则返回false<br>        if((strIndex != str.length &amp;&amp; pattern[patternIndex]==str[strIndex])||(strIndex != str.length &amp;&amp; pattern[patternIndex]==’.’)){<br>            return Core(str,pattern,strIndex+1,patternIndex+1);<br>        }<br>        return false;<br>    }<br>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/spring04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/17/spring04/" class="post-title-link" itemprop="url">spring04</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-17 22:24:29" itemprop="dateCreated datePublished" datetime="2019-12-17T22:24:29+08:00">2019-12-17</time>
             
 
             
@@ -1739,179 +1915,6 @@ listNode = listNode.next;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/剑指面试题4：二维数组中的查找/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/24/剑指面试题4：二维数组中的查找/" class="post-title-link" itemprop="url">剑指面试题4：二维数组中的查找</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-24 23:10:56 / Modified: 23:17:46" itemprop="dateCreated datePublished" datetime="2019-06-24T23:10:56+08:00">2019-06-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>分析：</p>
-<pre><code>①若target比某个数小，则target位于该数的左侧或上方；否则位于右侧或下方。
-②从右上角开始，    若target等于该数，则true；
-                若target大于该数，则位于该数下方；
-                若target小于该数，则位于该数左侧，row-1；
-③边界条件，        要注意查找范围是否为空：array.length&gt;0
-                遍历到左上角或者左下角或者右下角。所以是row=array.length-1,col=0;
-
-
-public class Solution {
-public boolean Find(int target, int [][] array) {
-if (array.length&lt;=0){
-    return false;
-}
-//右上角的点
-int row = 0;
-int col = array[0].length-1;
-while(row &lt; array.length &amp;&amp; col &gt;= 0){
-    if(target == array[row][col]){
-        return true;
-    }
-    if(target &lt; array[row][col]){
-        col--;
-    }
-    else{
-        row++;
-    }
-}
-    return false;
-}
-</code></pre><p>}</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1960,7 +1963,7 @@ while(row &lt; array.length &amp;&amp; col &gt;= 0){
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

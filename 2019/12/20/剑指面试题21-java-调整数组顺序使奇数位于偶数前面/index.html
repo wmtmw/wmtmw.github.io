@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="题目：    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 分析：    前序遍历序列{1,2,4,7,3,5,6,8}    中序遍历序列{4,7,2,1,5,3,8,6} 1.根节点1，在中序序列中找到1">
-<meta name="keywords" content="剑指offer">
+  <meta name="description" content="题目：输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。 若不需要保证相对位置不变，则可以使用做法二，此时不需要开辟新空间 保证相对顺序的思路：①创建一个新数组，数组大小与原数组相等。②遍历原始数组，若为奇数，则保存在原始数组中；若为偶数，则保存在新数组中。③遍历结束后，将新数组按">
+<meta name="keywords" content="剑指">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指面试题7(java):重建二叉树">
-<meta property="og:url" content="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/index.html">
+<meta property="og:title" content="剑指面试题21-java-调整数组顺序使奇数位于偶数前面">
+<meta property="og:url" content="http://yoursite.com/2019/12/20/剑指面试题21-java-调整数组顺序使奇数位于偶数前面/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
-<meta property="og:description" content="题目：    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 分析：    前序遍历序列{1,2,4,7,3,5,6,8}    中序遍历序列{4,7,2,1,5,3,8,6} 1.根节点1，在中序序列中找到1">
+<meta property="og:description" content="题目：输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。 若不需要保证相对位置不变，则可以使用做法二，此时不需要开辟新空间 保证相对顺序的思路：①创建一个新数组，数组大小与原数组相等。②遍历原始数组，若为奇数，则保存在原始数组中；若为偶数，则保存在新数组中。③遍历结束后，将新数组按">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-25T14:33:39.516Z">
+<meta property="og:updated_time" content="2019-12-20T03:59:03.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指面试题7(java):重建二叉树">
-<meta name="twitter:description" content="题目：    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 分析：    前序遍历序列{1,2,4,7,3,5,6,8}    中序遍历序列{4,7,2,1,5,3,8,6} 1.根节点1，在中序序列中找到1">
+<meta name="twitter:title" content="剑指面试题21-java-调整数组顺序使奇数位于偶数前面">
+<meta name="twitter:description" content="题目：输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。 若不需要保证相对位置不变，则可以使用做法二，此时不需要开辟新空间 保证相对顺序的思路：①创建一个新数组，数组大小与原数组相等。②遍历原始数组，若为奇数，则保存在原始数组中；若为偶数，则保存在新数组中。③遍历结束后，将新数组按">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/20/剑指面试题21-java-调整数组顺序使奇数位于偶数前面/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>剑指面试题7(java):重建二叉树 | Sugar's blog</title>
+  <title>剑指面试题21-java-调整数组顺序使奇数位于偶数前面 | Sugar's blog</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/剑指面试题21-java-调整数组顺序使奇数位于偶数前面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sugar">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">剑指面试题7(java):重建二叉树
+          <h1 class="post-title" itemprop="name headline">剑指面试题21-java-调整数组顺序使奇数位于偶数前面
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="Created: 2019-06-25 22:28:52 / Modified: 22:33:39" itemprop="dateCreated datePublished" datetime="2019-06-25T22:28:52+08:00">2019-06-25</time>
+              <time title="Created: 2019-12-20 11:45:26 / Modified: 11:59:03" itemprop="dateCreated datePublished" datetime="2019-12-20T11:45:26+08:00">2019-12-20</time>
             
 
             
@@ -405,64 +405,33 @@
       
 
       
-        <p>题目：<br>    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
-<p>分析：<br>    前序遍历序列{1,2,4,7,3,5,6,8}<br>    中序遍历序列{4,7,2,1,5,3,8,6}</p>
-<pre><code>1.根节点1，在中序序列中找到1，左边为左子树，右边为右子树
-2.在前序序列中找到左子树的序号范围，在中序序列中找到左子树序号范围，递归
-3.在前序序列中找到右子树的序号范围，在中序序列中找到右子树序号范围，递归
-</code></pre><p>代码：<br>/**</p>
-<ul>
-<li>Definition for binary tree</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>public class Solution {<br> public TreeNode reConstructBinaryTree(int [] pre,int [] in) {</p>
-<pre><code>//健壮性判断
-if(pre.length!=in.length||pre.length &lt;= 0||in.length &lt;= 0){
-    return null;
-}
-TreeNode node = reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
-return node;
-</code></pre><p> }<br> public TreeNode reConstructBinaryTree(int [] pre,int preStart,int preEnd,int [] in,int inStart,int inEnd){</p>
-<pre><code>   //根节点
-TreeNode root = new TreeNode(pre[preStart]); 
-    //在中序遍历中找到根节点，左边为左子树，右边为右子树
-int leftEnd = 0;
-for(int i = inStart;i &lt;= inEnd;i++){
-    if(in[i] == pre[preStart]){
-        break;
+        <p>题目：输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<p>若不需要保证相对位置不变，则可以使用做法二，此时不需要开辟新空间</p>
+<p>保证相对顺序的思路：<br>①创建一个新数组，数组大小与原数组相等。<br>②遍历原始数组，若为奇数，则保存在原始数组中；若为偶数，则保存在新数组中。<br>③遍历结束后，将新数组按顺序添加到原始数组奇数后</p>
+<hr>
+<p>做法一：<br>public class Solution {<br>    public void reOrderArray(int [] array) {<br>        //如果数组为空或者数组元素小于2，则不需要重排<br>        if(array == null || array.length&lt;2){<br>            return;<br>        }</p>
+<pre><code>    int oddIndex = 0;
+    int evenIndex = 0;
+    int[] arrayEven = new int[array.length];
+  //创建一个新数组，遍历原始数组，奇数按顺序保留在原始数组中，偶数按顺序添加到新数组中，遍历结束后，将新数组复制到原数组中
+    for(int i = 0;i &lt; array.length;i++){
+        if((array[i]&amp;1)!=0){
+            array[oddIndex]=array[i];
+            oddIndex++;
+        }else{
+            arrayEven[evenIndex]=array[i];
+            evenIndex++;
+        }
     }
-    leftEnd++;
+    evenIndex=0;
+    for(int i = oddIndex;i&lt;array.length;i++){
+        array[i]=arrayEven[evenIndex];
+        evenIndex++;
+    }
 }
-//左子树
-if(leftEnd &gt; 0){
-    //在前序遍历中确定左子树元素的序号
-    int preLeftStart = preStart+1;
-    int preLeftEnd = preStart+leftEnd;
-    //在中序遍历中确定左子树的序号
-    int inLeftStart = inStart;
-    int inLeftEnd = inStart+leftEnd-1;
-    //递归
-    root.left = reConstructBinaryTree(pre,preLeftStart,preLeftEnd,in,inLeftStart,inLeftEnd);
-}
-//右子树
-if((preEnd-preStart)-leftEnd &gt; 0){
-    //在前序遍历中确定右子树元素的序号
-    int preRightStart = preStart+leftEnd+1;
-    int preRightEnd = preEnd;
-    //在中序遍历中确定右子树的序号
-    int inRigthStart = inStart+leftEnd+1;
-    int inRightEnd = inEnd;
-     //递归
-    root.right = reConstructBinaryTree(pre,preRightStart,preRightEnd,in,inRigthStart,inRightEnd);
-
-}
-return root;
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
+</code></pre><p>}</p>
+<hr>
+<p>做法二：不保证相对顺序<br>public class Solution {<br>    public void reOrderArray(int [] array) {<br>        //如果数组为空或者数组元素小于2，则不需要重排<br>        if(array == null || array.length&lt;2){<br>            return;<br>        }<br>        //设置两个索引，一个位于数组首位，一个位于数组末尾。<br>        int oddIndex = 0;<br>        int evenIndex = array.length-1;<br>       while(oddIndex&lt;evenIndex){<br>        while(oddIndex&lt;evenIndex&amp;&amp;(array[oddIndex]&amp;1)!=0){<br>            oddIndex++;<br>        }<br>        while(oddIndex&lt;evenIndex&amp;&amp;(array[evenIndex]&amp;1)==0){<br>            evenIndex–;<br>        }<br>           if(oddIndex&lt;evenIndex){<br>               int temp = array[evenIndex];<br>               array[evenIndex]=array[oddIndex];<br>               array[oddIndex]=temp;<br>           }<br>       }<br>    }<br>}</p>
 
       
     </div>
@@ -486,7 +455,7 @@ return root;
       
         <div class="post-tags">
           
-            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            <a href="/tags/剑指/" rel="tag"># 剑指</a>
           
         </div>
       
@@ -499,8 +468,8 @@ return root;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/25/剑指面试题6-java-：从尾到头打印链表/" rel="next" title="剑指面试题6(java)：从尾到头打印链表">
-                <i class="fa fa-chevron-left"></i> 剑指面试题6(java)：从尾到头打印链表
+              <a href="/2019/12/18/剑指面试题19-java-正则表达式匹配/" rel="next" title="剑指面试题19-java-正则表达式匹配">
+                <i class="fa fa-chevron-left"></i> 剑指面试题19-java-正则表达式匹配
               </a>
             
           </div>
@@ -508,10 +477,6 @@ return root;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/21/剑指面试题10-java-斐波那契数列/" rel="prev" title="剑指面试题10-java-斐波那契数列">
-                剑指面试题10-java-斐波那契数列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
