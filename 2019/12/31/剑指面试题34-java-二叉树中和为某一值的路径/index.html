@@ -96,21 +96,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="题目：输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。(注意:在返回值的list中，数组长度大的数组靠前) 思路：从根节点开始遍历树，因此选择前序遍历的方式      如果当前节点是叶节点，判断该路径值之和是否等于目标整数      若不是叶节点，      若该节点有左子树，则进入左子树的递归函数">
+<meta name="keywords" content="剑指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指面试题34-java-二叉树中和为某一值的路径">
+<meta property="og:url" content="http://yoursite.com/2019/12/31/剑指面试题34-java-二叉树中和为某一值的路径/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
+<meta property="og:description" content="题目：输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。(注意:在返回值的list中，数组长度大的数组靠前) 思路：从根节点开始遍历树，因此选择前序遍历的方式      如果当前节点是叶节点，判断该路径值之和是否等于目标整数      若不是叶节点，      若该节点有左子树，则进入左子树的递归函数">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-25T12:09:43.700Z">
+<meta property="og:updated_time" content="2019-12-31T03:50:46.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="剑指面试题34-java-二叉树中和为某一值的路径">
+<meta name="twitter:description" content="题目：输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。(注意:在返回值的list中，数组长度大的数组靠前) 思路：从根节点开始遍历树，因此选择前序遍历的方式      如果当前节点是叶节点，判断该路径值之和是否等于目标整数      若不是叶节点，      若该节点有左子树，则进入左子树的递归函数">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/31/剑指面试题34-java-二叉树中和为某一值的路径/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>tags | Sugar's blog</title>
+  <title>剑指面试题34-java-二叉树中和为某一值的路径 | Sugar's blog</title>
   
 
 
@@ -240,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -299,99 +303,182 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/剑指面试题34-java-二叉树中和为某一值的路径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">剑指面试题34-java-二叉树中和为某一值的路径
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              5 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/communication/" style="font-size: 12px; color: #ccc">communication</a> <a href="/tags/leetcode/" style="font-size: 30px; color: #111">leetcode</a> <a href="/tags/剑指/" style="font-size: 30px; color: #111">剑指</a> <a href="/tags/剑指offer/" style="font-size: 21px; color: #6f6f6f">剑指offer</a> <a href="/tags/随笔/" style="font-size: 12px; color: #ccc">随笔</a>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-31 11:17:54 / Modified: 11:50:46" itemprop="dateCreated datePublished" datetime="2019-12-31T11:17:54+08:00">2019-12-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>题目：输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。(注意:在返回值的list中，数组长度大的数组靠前)</p>
+<p>思路：从根节点开始遍历树，因此选择前序遍历的方式<br>      如果当前节点是叶节点，判断该路径值之和是否等于目标整数<br>      若不是叶节点，<br>      若该节点有左子树，则进入左子树的递归函数<br>      若该节点有右子树，则进入右子树的递归函数<br>      处理完当前节点的左右子树后，弹出该节点的值</p>
+<p>因此，需要一个元素为数组的数组，和一个元素为Integer的数组</p>
+<p>代码：<br>import java.util.ArrayList;<br>/**<br>public class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;</p>
+<pre><code>public TreeNode(int val) {
+    this.val = val;
+
+}
+</code></pre><p>}<br>*/<br>public class Solution {<br>    public ArrayList&lt;ArrayList<integer>&gt; FindPath(TreeNode root,int target) {<br>        ArrayList&lt;ArrayList<integer>&gt; res = new ArrayList&lt;&gt;();<br>        if(root == null){<br>            return res;<br>        }<br>        ArrayList<integer> al = new ArrayList&lt;&gt;();<br>        Core(res,al,root,target);<br>        return res;<br>    }<br>    public void Core(ArrayList&lt;ArrayList<integer>&gt; res,ArrayList<integer> al,TreeNode root,int target){<br>        if(root == null){<br>            return;<br>        }<br>        al.add(root.val);<br>        if(root.left == null &amp;&amp; root.right == null &amp;&amp; root.val == target){<br>            res.add(new ArrayList<integer>(al));<br>        }else{<br>            Core(res,al,root.left,target-root.val);<br>            Core(res,al,root.right,target-root.val);<br>        }<br>        al.remove(al.size()-1);<br>    }<br>}</integer></integer></integer></integer></integer></integer></p>
+<p>注意：往元素为数组的数组中添加元素是：res.add(new ArrayList<integer>(al));</integer></p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剑指/" rel="tag"># 剑指</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/28/剑指面试题33-java-二叉搜索树的后序遍历序列/" rel="next" title="剑指面试题33-java-二叉搜索树的后序遍历序列">
+                <i class="fa fa-chevron-left"></i> 剑指面试题33-java-二叉搜索树的后序遍历序列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/31/剑指面试题35-java-复制链表的复制/" rel="prev" title="剑指面试题35-java-复制链表的复制">
+                剑指面试题35-java-复制链表的复制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 

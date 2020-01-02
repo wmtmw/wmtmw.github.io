@@ -96,21 +96,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="题目：输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。 思路：    1.在原始链表的每个节点N后面创建对应的N’，链表变成N→N’→…    2.复制原始节点的random指针，假设原始链表中N指向S，则N’指向S’    3.拆链表，奇数位置节点连起来为原始链表，偶数位置节点连起来是复制链表 问题：在">
+<meta name="keywords" content="剑指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指面试题35-java-复制链表的复制">
+<meta property="og:url" content="http://yoursite.com/2019/12/31/剑指面试题35-java-复制链表的复制/index.html">
 <meta property="og:site_name" content="Sugar&#39;s blog">
+<meta property="og:description" content="题目：输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。 思路：    1.在原始链表的每个节点N后面创建对应的N’，链表变成N→N’→…    2.复制原始节点的random指针，假设原始链表中N指向S，则N’指向S’    3.拆链表，奇数位置节点连起来为原始链表，偶数位置节点连起来是复制链表 问题：在">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-25T12:09:43.700Z">
+<meta property="og:updated_time" content="2020-01-02T07:34:14.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="剑指面试题35-java-复制链表的复制">
+<meta name="twitter:description" content="题目：输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。 思路：    1.在原始链表的每个节点N后面创建对应的N’，链表变成N→N’→…    2.复制原始节点的random指针，假设原始链表中N指向S，则N’指向S’    3.拆链表，奇数位置节点连起来为原始链表，偶数位置节点连起来是复制链表 问题：在">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/31/剑指面试题35-java-复制链表的复制/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>tags | Sugar's blog</title>
+  <title>剑指面试题35-java-复制链表的复制 | Sugar's blog</title>
   
 
 
@@ -240,7 +244,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -299,99 +303,188 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/剑指面试题35-java-复制链表的复制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">剑指面试题35-java-复制链表的复制
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              5 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/communication/" style="font-size: 12px; color: #ccc">communication</a> <a href="/tags/leetcode/" style="font-size: 30px; color: #111">leetcode</a> <a href="/tags/剑指/" style="font-size: 30px; color: #111">剑指</a> <a href="/tags/剑指offer/" style="font-size: 21px; color: #6f6f6f">剑指offer</a> <a href="/tags/随笔/" style="font-size: 12px; color: #ccc">随笔</a>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-31 11:18:52" itemprop="dateCreated datePublished" datetime="2019-12-31T11:18:52+08:00">2019-12-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-01-02 15:34:14" itemprop="dateModified" datetime="2020-01-02T15:34:14+08:00">2020-01-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>题目：输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。</p>
+<p>思路：<br>    1.在原始链表的每个节点N后面创建对应的N’，链表变成N→N’→…<br>    2.复制原始节点的random指针，假设原始链表中N指向S，则N’指向S’<br>    3.拆链表，奇数位置节点连起来为原始链表，偶数位置节点连起来是复制链表</p>
+<p>问题：在牛客上写的时候，原始链表也需要连起来，才对。</p>
+<p>代码：<br>/*<br>public class RandomListNode {<br>    int label;<br>    RandomListNode next = null;<br>    RandomListNode random = null;</p>
+<pre><code>RandomListNode(int label) {
+    this.label = label;
+}
+</code></pre><p>}<br>*/<br>public class Solution {<br>    public RandomListNode Clone(RandomListNode pHead)<br>    {<br>        if(pHead == null){<br>            return null;<br>        }<br>        //复制节点<br>        RandomListNode cur = pHead;<br>        RandomListNode next,temp,temp1;<br>        while(cur != null){<br>            temp = cur.next;<br>            cur.next = new RandomListNode(cur.label);<br>            cur.next.next=temp;<br>            cur = cur.next.next;<br>        }<br>        //增加random指针<br>        cur = pHead;<br>        while(cur != null){<br>            cur.next.random = cur.random==null?null:cur.random.next;<br>            cur = cur.next.next;<br>        }<br>        //拆链<br>        cur = pHead;<br>        RandomListNode newHead = cur.next;<br>        while(cur != null){<br>            temp = cur.next;<br>            temp1 = cur.next.next;<br>            cur.next = temp1;<br>            temp.next = temp1 == null?null:temp1.next;<br>            cur = temp1;<br>        }<br>        return newHead;<br>    }<br>}</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剑指/" rel="tag"># 剑指</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/31/剑指面试题34-java-二叉树中和为某一值的路径/" rel="next" title="剑指面试题34-java-二叉树中和为某一值的路径">
+                <i class="fa fa-chevron-left"></i> 剑指面试题34-java-二叉树中和为某一值的路径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 

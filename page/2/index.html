@@ -319,6 +319,654 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/剑指面试题25-java-合并两个排序的链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/26/剑指面试题25-java-合并两个排序的链表/" class="post-title-link" itemprop="url">剑指面试题25-java-合并两个排序的链表</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-26 17:55:09 / Modified: 18:07:17" itemprop="dateCreated datePublished" datetime="2019-12-26T17:55:09+08:00">2019-12-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目： 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
+<p>即输入两个链表：1-&gt;3-&gt;5,2-&gt;4-&gt;6  → 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6</p>
+<p>思路：    当其中一个链表为空时，返回另一个链表（其实就包括了两个链表均为空的情况）<br>        两个链表都不为空时：<br>        1.创建一个新的节点A，ListNode A = new ListNode(0);<br>         2.比较两个链表头节点的值，选择值更小的节点，使节点A指向该节点，该节点所在链表的头节点改为该节点的下一个节点，循环操作，直到某个链表为空。<br>         3.将新链表的尾节点指向非空链表的头节点。<br>         4.返回A的下一个节点（特别注意，此时A为0，不是原始两个链表中的值，只是为了不需要区分对原始链表头节点和非头节点的操作而已）</p>
+<p>代码：</p>
+<p>/*<br>public class ListNode {<br>    int val;<br>    ListNode next = null;</p>
+<pre><code>ListNode(int val) {
+    this.val = val;
+}
+</code></pre><p>}*/<br>public class Solution {<br>    public ListNode Merge(ListNode list1,ListNode list2) {<br>        //当链表1为空，则合并后的链表为链表2；<br>        if(list1 == null){<br>            return list2;<br>        }<br>        if(list2 == null){<br>            return list1;<br>        }<br>        ListNode newNode = new ListNode(0);<br>        ListNode curNode = newNode;<br>        while(list1 != null &amp;&amp; list2 != null){<br>            if(list1.val &lt; list2.val){<br>                curNode.next = list1;<br>                curNode = curNode.next;<br>                list1 = list1.next;<br>            }else{<br>                 curNode.next = list2;<br>                curNode = curNode.next;<br>                list2 = list2.next;<br>            }<br>        }<br>        if(list1 == null){<br>            curNode.next = list2;<br>        }<br>        if(list2 == null){<br>            curNode.next = list1;<br>        }<br>    return newNode.next;<br>    }<br>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/剑指面试题24-java-反转链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/23/剑指面试题24-java-反转链表/" class="post-title-link" itemprop="url">剑指面试题24-java-反转链表</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-23 09:51:07" itemprop="dateCreated datePublished" datetime="2019-12-23T09:51:07+08:00">2019-12-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-12-25 09:24:31" itemprop="dateModified" datetime="2019-12-25T09:24:31+08:00">2019-12-25</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：输入一个链表，反转链表后，输出新链表的表头。</p>
+<p>分析：三种情况<br>1.链表为空，返回空<br>2.链表中只有一个节点，返回该节点<br>3.链表中有多个节点</p>
+<p>3的思路：<br>设置三个指针，前一个节点，当前节点，后一个节点<br>然后将当前节点指向前一个节点，遍历</p>
+<p>代码<br>/*<br>public class ListNode {<br>    int val;<br>    ListNode next = null;</p>
+<pre><code>ListNode(int val) {
+    this.val = val;
+}
+</code></pre><p>}*/<br>public class Solution {<br>    public ListNode ReverseList(ListNode head) {<br>        //如果链表为空<br>        if(head == null){<br>            return null;<br>        }<br>        //如果链表只有一个元素<br>        if(head.next == null){<br>            return head;<br>        }<br>        //如果链表有多个元素<br>        //定义三个指针<br>        ListNode pre = head;<br>        ListNode cur = head.next;<br>        ListNode next = null;</p>
+<pre><code>    while(cur!= null){
+    //特别注意这个判断条件
+        next = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = next;
+    }
+    head.next = null;
+    return pre;
+
+}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/剑指面试题23-java-链表中环的入口节点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/23/剑指面试题23-java-链表中环的入口节点/" class="post-title-link" itemprop="url">剑指面试题23-java-链表中环的入口节点</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-23 09:50:06 / Modified: 09:57:13" itemprop="dateCreated datePublished" datetime="2019-12-23T09:50:06+08:00">2019-12-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>代码：<br>public class Solution {</p>
+<pre><code>public ListNode EntryNodeOfLoop(ListNode pHead)
+{
+    if(pHead==null||pHead.next==null){
+        return null;
+    }
+    ListNode fast = pHead;
+    ListNode slow = pHead;
+    int stepCount = 0;
+    while(fast.next!=null){
+        fast = fast.next.next;
+        slow = slow.next;
+        stepCount++;
+        if(fast == slow){
+            slow = pHead;
+            for(int i =0;i&lt;stepCount;i++){
+                if(fast == slow)
+                {
+                    return slow;
+                }
+                fast = fast.next;
+                slow = slow.next;
+            }
+        }
+    }
+    return null;
+}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/剑指面试题22-java-链表中倒数第k个节点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/22/剑指面试题22-java-链表中倒数第k个节点/" class="post-title-link" itemprop="url">剑指面试题22-java-链表中倒数第k个节点</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-22 11:45:03 / Modified: 11:55:37" itemprop="dateCreated datePublished" datetime="2019-12-22T11:45:03+08:00">2019-12-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：输入一个链表，输出该链表中倒数第k个结点。</p>
+<p>复杂度分析：<br>时间复杂度：O(N);<br>空间复杂度：O(1).</p>
+<p>特殊情况：1.链表为空；2.返回倒数第0个节点；3.链表不足k个节点</p>
+<p>思路：<br>    1.当指针为空，或者寻找倒数第0个节点，则返回null。<br>    2.设置两个指针，第一个指针先走k-1步，如果链表节点不足，返回空；否则，当第一个指针走了k-1步后，两个指针同速度往前走，直到第一个指针到链表末尾。</p>
+<p>代码：<br>/*<br>public class ListNode {<br>    int val;<br>    ListNode next = null;</p>
+<pre><code>ListNode(int val) {
+    this.val = val;
+}
+</code></pre><p>}*/<br>public class Solution {<br>    public ListNode FindKthToTail(ListNode head,int k) {<br>        //判断：链表为空或者k&lt;=0，均返回null<br>        if(head==null||k&lt;=0){<br>            return null;<br>        }<br>        //创建两个指针fast，slow<br>        ListNode fast = head, slow = head;<br>        for(int i = 0;i &lt; k-1;i++){<br>            if(fast.next != null){<br>                fast = fast.next;<br>            }else{<br>                return null;<br>            }<br>        }<br>        while(fast.next!=null){<br>            fast = fast.next;<br>            slow = slow.next;<br>        }<br>        return slow;<br>    }<br>}</p>
+<p>简单写法：来源<a href="https://blog.csdn.net/littlehaes/article/details/91411250" target="_blank" rel="noopener">https://blog.csdn.net/littlehaes/article/details/91411250</a></p>
+<p>public ListNode FindKthToTail(ListNode head,int k) {<br>        ListNode p, q;<br>        p = q = head;<br>        int i = 0;<br>        for (; p != null; i++) {<br>            if (i &gt;= k)<br>                q = q.next;<br>            p = p.next;<br>        }<br>        return i &lt; k ? null : q;<br>    }</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/20/剑指面试题21-java-调整数组顺序使奇数位于偶数前面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1244,680 +1892,6 @@ public int getDigitSum(int num){
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/剑指面试题12-java-矩阵中的路径/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/23/剑指面试题12-java-矩阵中的路径/" class="post-title-link" itemprop="url">剑指面试题12-java-矩阵中的路径</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-23 16:58:01 / Modified: 17:56:14" itemprop="dateCreated datePublished" datetime="2019-08-23T16:58:01+08:00">2019-08-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目：给定一个矩阵，给定一组字符串，判断矩阵中是否存在一条包含字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以再矩阵中向左向右向上向下移动，但不能两次经过格子。</p>
-<p>思路：<br>①因为不能两次进入一个格子，所以需要一个和原始矩阵同维度的flag矩阵标识该格子是否可以进入。<br>boolean[] flag = new boolean[matrix.length];<br>for(int i = 0;i &lt; matrix.length;i++){<br>    flag[i] = true; //初始值全为true<br>}</p>
-<p>②首先遍历矩阵，直到在矩阵中找到与字符串第一个值匹配的值，若找不到，则不存在路径满足。</p>
-<p>③匹配到第i个字符所在的位置，寻找其上下左右，是否有一个位置的字符与第i+1个字符匹配</p>
-<p>具体过程：<br>    i）先匹配(上)：是否匹配，匹配，该位置置为false，重复③直到匹配完字符串中的所有字符；否则，该位置重新置为true，匹配(下);</p>
-<pre><code>ii）若匹配完上下左右，均无法匹配，则不存在一条路径满足要求，return false。
-</code></pre><p>④注意越界判断，不可进入判断，不匹配判断。</p>
-<p>我们可以看到i是一个自己调用自己的过程，独立使用一个函数，使用递归处理。</p>
-<p>代码：<br>public class Solution {<br>    public boolean hasPath(char[] matrix, int rows, int cols, char[] str)<br>    {<br>        //建立一个flag矩阵<br>        boolean[] flag = new boolean[matrix.length];<br>        for(int i = 0;i &lt; matrix.length;i++){<br>            flag[i] = true;<br>        }<br>        //寻找第一个匹配字符的位置<br>        for(int i = 0;i &lt; rows;i++){<br>        for(int j = 0;j &lt; cols;j++){<br>        if(isKeXing(matrix, rows, cols,i,j,str,0,flag)){<br>            return true;<br>        }<br>    }<br>    }<br>    return false;<br>    }<br>    //递归判断路径是否可行<br>    public boolean isKeXing(char[] matrix, int rows, int cols,int i,int j, char[] str,int index,boolean[] flag){<br>    //对应矩阵中的位置<br>    int ind = i*cols+j;<br>    //判断对应位置是否越界，是否与需要匹配的字符不相等，是否不能进入<br>    if(i&lt;0||i&gt;=rows||j&lt;0||j&gt;=cols||matrix[ind]!=str[index]||flag[ind]==false){<br>        return false;<br>        }</p>
-<pre><code>//如果通过上述if，则将该位置置为false
-flag[ind] = false;
-//如果已经匹配完最后一个值了，则存在该路径
-if(index == str.length-1){
-    return true;
-}
-//递归判断是否存在该路径
-if(isKeXing(matrix, rows, cols,i-1,j,str,index+1,flag)||isKeXing(matrix, rows, cols,i+1,j,str,index+1,flag)||isKeXing(matrix, rows, cols,i,j-1,str,index+1,flag)||isKeXing(matrix, rows, cols,i,j+1,str,index+1,flag)){
-    return true;
-}
-//若上下左右都不可行
-flag[ind] = true;
-return false;
-</code></pre><p>}<br>}</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/剑指面试题10-java-斐波那契数列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/21/剑指面试题10-java-斐波那契数列/" class="post-title-link" itemprop="url">剑指面试题10-java-斐波那契数列</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-21 21:30:15 / Modified: 21:33:36" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:15+08:00">2019-08-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目：现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39</p>
-<p>递归很慢</p>
-<p>解题思路：避免重复计算，把已经计算过的中间项保存下来。</p>
-<p>具体代码：<br>public class Solution {<br>    public int Fibonacci(int n) {<br>        int f0 = 0;<br>        int f1 = 1;<br>        int f = 0;<br>        if(n == 0){<br>            return 0;<br>        }else if(n == 1){<br>            return 1;<br>        }else{<br>            for(int i = 2;i &lt;=n;i++){<br>                f = f0+f1;<br>                f0 = f1;<br>                f1 = f;<br>            }<br>            return f;<br>        }</p>
-<pre><code>}
-</code></pre><p>}</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/25/剑指面试题7-java-重建二叉树/" class="post-title-link" itemprop="url">剑指面试题7(java):重建二叉树</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-25 22:28:52 / Modified: 22:33:39" itemprop="dateCreated datePublished" datetime="2019-06-25T22:28:52+08:00">2019-06-25</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目：<br>    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
-<p>分析：<br>    前序遍历序列{1,2,4,7,3,5,6,8}<br>    中序遍历序列{4,7,2,1,5,3,8,6}</p>
-<pre><code>1.根节点1，在中序序列中找到1，左边为左子树，右边为右子树
-2.在前序序列中找到左子树的序号范围，在中序序列中找到左子树序号范围，递归
-3.在前序序列中找到右子树的序号范围，在中序序列中找到右子树序号范围，递归
-</code></pre><p>代码：<br>/**</p>
-<ul>
-<li>Definition for binary tree</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>public class Solution {<br> public TreeNode reConstructBinaryTree(int [] pre,int [] in) {</p>
-<pre><code>//健壮性判断
-if(pre.length!=in.length||pre.length &lt;= 0||in.length &lt;= 0){
-    return null;
-}
-TreeNode node = reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
-return node;
-</code></pre><p> }<br> public TreeNode reConstructBinaryTree(int [] pre,int preStart,int preEnd,int [] in,int inStart,int inEnd){</p>
-<pre><code>   //根节点
-TreeNode root = new TreeNode(pre[preStart]); 
-    //在中序遍历中找到根节点，左边为左子树，右边为右子树
-int leftEnd = 0;
-for(int i = inStart;i &lt;= inEnd;i++){
-    if(in[i] == pre[preStart]){
-        break;
-    }
-    leftEnd++;
-}
-//左子树
-if(leftEnd &gt; 0){
-    //在前序遍历中确定左子树元素的序号
-    int preLeftStart = preStart+1;
-    int preLeftEnd = preStart+leftEnd;
-    //在中序遍历中确定左子树的序号
-    int inLeftStart = inStart;
-    int inLeftEnd = inStart+leftEnd-1;
-    //递归
-    root.left = reConstructBinaryTree(pre,preLeftStart,preLeftEnd,in,inLeftStart,inLeftEnd);
-}
-//右子树
-if((preEnd-preStart)-leftEnd &gt; 0){
-    //在前序遍历中确定右子树元素的序号
-    int preRightStart = preStart+leftEnd+1;
-    int preRightEnd = preEnd;
-    //在中序遍历中确定右子树的序号
-    int inRigthStart = inStart+leftEnd+1;
-    int inRightEnd = inEnd;
-     //递归
-    root.right = reConstructBinaryTree(pre,preRightStart,preRightEnd,in,inRigthStart,inRightEnd);
-
-}
-return root;
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题6-java-：从尾到头打印链表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/25/剑指面试题6-java-：从尾到头打印链表/" class="post-title-link" itemprop="url">剑指面试题6(java)：从尾到头打印链表</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-25 14:57:44 / Modified: 15:06:47" itemprop="dateCreated datePublished" datetime="2019-06-25T14:57:44+08:00">2019-06-25</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目描述：<br>    输入一个链表，按链表值从尾到头的顺序返回一个ArrayList</p>
-<p>分析：<br>    ①ArrayList是实现了基于动态数组的数据结构，LinkedList是基于链表的数据结构<br>    ②对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针<br>    ③对于新增和删除操作add和remove，LinkedList比较占优势，因为ArrayList要移动数据。</p>
-<pre><code>所以显然，遍历链表，使用LinkedList保存链表中的值（addFirst），保存完后不断remove，就是从尾到头的顺序。按照书本是打印，而这里是保存到ArrayList中。
-
-
-/**
-</code></pre><ul>
-<li>public class ListNode {</li>
-<li>int val;</li>
-<li>ListNode next = null;<br>*</li>
-<li>ListNode(int val) {</li>
-<li>this.val = val;</li>
-<li>}</li>
-<li>}<br><em>
-</em>/<br>import java.util.LinkedList;<br>import java.util.ArrayList;<br>public class Solution {<br>public ArrayList<integer> printListFromTailToHead(ListNode listNode) {<br>   LinkedList<integer> ll = new LinkedList<integer>();<br>   while(listNode != null){<pre><code>ll.addFirst(listNode.val);
-listNode = listNode.next;
-</code></pre>   }<br>   ArrayList<integer> al = new ArrayList<integer>();<br>   while(!ll.isEmpty()){<pre><code>al.add(ll.remove());
-</code></pre>   }<br>   return al;<br>}<br>}</integer></integer></integer></integer></integer></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1966,7 +1940,7 @@ listNode = listNode.next;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2079,7 +2053,7 @@ listNode = listNode.next;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

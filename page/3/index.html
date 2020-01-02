@@ -319,6 +319,680 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/剑指面试题12-java-矩阵中的路径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/23/剑指面试题12-java-矩阵中的路径/" class="post-title-link" itemprop="url">剑指面试题12-java-矩阵中的路径</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-23 16:58:01 / Modified: 17:56:14" itemprop="dateCreated datePublished" datetime="2019-08-23T16:58:01+08:00">2019-08-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：给定一个矩阵，给定一组字符串，判断矩阵中是否存在一条包含字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以再矩阵中向左向右向上向下移动，但不能两次经过格子。</p>
+<p>思路：<br>①因为不能两次进入一个格子，所以需要一个和原始矩阵同维度的flag矩阵标识该格子是否可以进入。<br>boolean[] flag = new boolean[matrix.length];<br>for(int i = 0;i &lt; matrix.length;i++){<br>    flag[i] = true; //初始值全为true<br>}</p>
+<p>②首先遍历矩阵，直到在矩阵中找到与字符串第一个值匹配的值，若找不到，则不存在路径满足。</p>
+<p>③匹配到第i个字符所在的位置，寻找其上下左右，是否有一个位置的字符与第i+1个字符匹配</p>
+<p>具体过程：<br>    i）先匹配(上)：是否匹配，匹配，该位置置为false，重复③直到匹配完字符串中的所有字符；否则，该位置重新置为true，匹配(下);</p>
+<pre><code>ii）若匹配完上下左右，均无法匹配，则不存在一条路径满足要求，return false。
+</code></pre><p>④注意越界判断，不可进入判断，不匹配判断。</p>
+<p>我们可以看到i是一个自己调用自己的过程，独立使用一个函数，使用递归处理。</p>
+<p>代码：<br>public class Solution {<br>    public boolean hasPath(char[] matrix, int rows, int cols, char[] str)<br>    {<br>        //建立一个flag矩阵<br>        boolean[] flag = new boolean[matrix.length];<br>        for(int i = 0;i &lt; matrix.length;i++){<br>            flag[i] = true;<br>        }<br>        //寻找第一个匹配字符的位置<br>        for(int i = 0;i &lt; rows;i++){<br>        for(int j = 0;j &lt; cols;j++){<br>        if(isKeXing(matrix, rows, cols,i,j,str,0,flag)){<br>            return true;<br>        }<br>    }<br>    }<br>    return false;<br>    }<br>    //递归判断路径是否可行<br>    public boolean isKeXing(char[] matrix, int rows, int cols,int i,int j, char[] str,int index,boolean[] flag){<br>    //对应矩阵中的位置<br>    int ind = i*cols+j;<br>    //判断对应位置是否越界，是否与需要匹配的字符不相等，是否不能进入<br>    if(i&lt;0||i&gt;=rows||j&lt;0||j&gt;=cols||matrix[ind]!=str[index]||flag[ind]==false){<br>        return false;<br>        }</p>
+<pre><code>//如果通过上述if，则将该位置置为false
+flag[ind] = false;
+//如果已经匹配完最后一个值了，则存在该路径
+if(index == str.length-1){
+    return true;
+}
+//递归判断是否存在该路径
+if(isKeXing(matrix, rows, cols,i-1,j,str,index+1,flag)||isKeXing(matrix, rows, cols,i+1,j,str,index+1,flag)||isKeXing(matrix, rows, cols,i,j-1,str,index+1,flag)||isKeXing(matrix, rows, cols,i,j+1,str,index+1,flag)){
+    return true;
+}
+//若上下左右都不可行
+flag[ind] = true;
+return false;
+</code></pre><p>}<br>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/剑指面试题10-java-斐波那契数列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/21/剑指面试题10-java-斐波那契数列/" class="post-title-link" itemprop="url">剑指面试题10-java-斐波那契数列</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-21 21:30:15 / Modified: 21:33:36" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:15+08:00">2019-08-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39</p>
+<p>递归很慢</p>
+<p>解题思路：避免重复计算，把已经计算过的中间项保存下来。</p>
+<p>具体代码：<br>public class Solution {<br>    public int Fibonacci(int n) {<br>        int f0 = 0;<br>        int f1 = 1;<br>        int f = 0;<br>        if(n == 0){<br>            return 0;<br>        }else if(n == 1){<br>            return 1;<br>        }else{<br>            for(int i = 2;i &lt;=n;i++){<br>                f = f0+f1;<br>                f0 = f1;<br>                f1 = f;<br>            }<br>            return f;<br>        }</p>
+<pre><code>}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题7-java-重建二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/25/剑指面试题7-java-重建二叉树/" class="post-title-link" itemprop="url">剑指面试题7(java):重建二叉树</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-25 22:28:52 / Modified: 22:33:39" itemprop="dateCreated datePublished" datetime="2019-06-25T22:28:52+08:00">2019-06-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：<br>    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>分析：<br>    前序遍历序列{1,2,4,7,3,5,6,8}<br>    中序遍历序列{4,7,2,1,5,3,8,6}</p>
+<pre><code>1.根节点1，在中序序列中找到1，左边为左子树，右边为右子树
+2.在前序序列中找到左子树的序号范围，在中序序列中找到左子树序号范围，递归
+3.在前序序列中找到右子树的序号范围，在中序序列中找到右子树序号范围，递归
+</code></pre><p>代码：<br>/**</p>
+<ul>
+<li>Definition for binary tree</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li><p>}<br>*/<br>public class Solution {<br> public TreeNode reConstructBinaryTree(int [] pre,int [] in) {</p>
+<pre><code>//健壮性判断
+if(pre.length!=in.length||pre.length &lt;= 0||in.length &lt;= 0){
+    return null;
+}
+TreeNode node = reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
+return node;
+</code></pre><p> }<br> public TreeNode reConstructBinaryTree(int [] pre,int preStart,int preEnd,int [] in,int inStart,int inEnd){</p>
+<pre><code>   //根节点
+TreeNode root = new TreeNode(pre[preStart]); 
+    //在中序遍历中找到根节点，左边为左子树，右边为右子树
+int leftEnd = 0;
+for(int i = inStart;i &lt;= inEnd;i++){
+    if(in[i] == pre[preStart]){
+        break;
+    }
+    leftEnd++;
+}
+//左子树
+if(leftEnd &gt; 0){
+    //在前序遍历中确定左子树元素的序号
+    int preLeftStart = preStart+1;
+    int preLeftEnd = preStart+leftEnd;
+    //在中序遍历中确定左子树的序号
+    int inLeftStart = inStart;
+    int inLeftEnd = inStart+leftEnd-1;
+    //递归
+    root.left = reConstructBinaryTree(pre,preLeftStart,preLeftEnd,in,inLeftStart,inLeftEnd);
+}
+//右子树
+if((preEnd-preStart)-leftEnd &gt; 0){
+    //在前序遍历中确定右子树元素的序号
+    int preRightStart = preStart+leftEnd+1;
+    int preRightEnd = preEnd;
+    //在中序遍历中确定右子树的序号
+    int inRigthStart = inStart+leftEnd+1;
+    int inRightEnd = inEnd;
+     //递归
+    root.right = reConstructBinaryTree(pre,preRightStart,preRightEnd,in,inRigthStart,inRightEnd);
+
+}
+return root;
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题6-java-：从尾到头打印链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sugar">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikaqiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sugar's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/25/剑指面试题6-java-：从尾到头打印链表/" class="post-title-link" itemprop="url">剑指面试题6(java)：从尾到头打印链表</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-25 14:57:44 / Modified: 15:06:47" itemprop="dateCreated datePublished" datetime="2019-06-25T14:57:44+08:00">2019-06-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目描述：<br>    输入一个链表，按链表值从尾到头的顺序返回一个ArrayList</p>
+<p>分析：<br>    ①ArrayList是实现了基于动态数组的数据结构，LinkedList是基于链表的数据结构<br>    ②对于随机访问get和set，ArrayList优于LinkedList，因为LinkedList要移动指针<br>    ③对于新增和删除操作add和remove，LinkedList比较占优势，因为ArrayList要移动数据。</p>
+<pre><code>所以显然，遍历链表，使用LinkedList保存链表中的值（addFirst），保存完后不断remove，就是从尾到头的顺序。按照书本是打印，而这里是保存到ArrayList中。
+
+
+/**
+</code></pre><ul>
+<li>public class ListNode {</li>
+<li>int val;</li>
+<li>ListNode next = null;<br>*</li>
+<li>ListNode(int val) {</li>
+<li>this.val = val;</li>
+<li>}</li>
+<li>}<br><em>
+</em>/<br>import java.util.LinkedList;<br>import java.util.ArrayList;<br>public class Solution {<br>public ArrayList<integer> printListFromTailToHead(ListNode listNode) {<br>   LinkedList<integer> ll = new LinkedList<integer>();<br>   while(listNode != null){<pre><code>ll.addFirst(listNode.val);
+listNode = listNode.next;
+</code></pre>   }<br>   ArrayList<integer> al = new ArrayList<integer>();<br>   while(!ll.isEmpty()){<pre><code>al.add(ll.remove());
+</code></pre>   }<br>   return al;<br>}<br>}</integer></integer></integer></integer></integer></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/剑指面试题5：替换空格/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1331,657 +2005,6 @@ public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/leetcode-119/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/12/leetcode-119/" class="post-title-link" itemprop="url">leetcode_119</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-12 08:37:48 / Modified: 08:59:34" itemprop="dateCreated datePublished" datetime="2019-03-12T08:37:48+08:00">2019-03-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/pascals-triangle-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/pascals-triangle-ii/</a></p>
-<p>这道题目有点意思，118题是要得到所有行，而这道题是输出给定行。也就是说，这个变化我们直接在ArrayList里面做就行，不需要全部存储起来。</p>
-<p>规律是：<br>1<br>11<br>121<br>1331<br>14641<br>…<br>首先，前两行需要给定，也就是<br>if(rowIndex &gt;= 0) result.add(1);<br>if(rowIndex &gt;= 1) result.add(1);</p>
-<p>而每一行最后一个元素也是1，这在确定了别的元素之后加上，就可以了。</p>
-<p>很显然我们会用到<br>result.get(j)+result.get(j-1);//具体j指代什么再说。</p>
-<p>第三行：<br>2=result.get(1)+result.get(0);</p>
-<p>第四行：<br>第一个3 = result.get(1)+result.get(0);<br>这个时候result存的数据就变成了：[1,3,1]<br>这个时候我们就得不到第二个3了，所以显然，这个变化要从后往前做：<br>第二个3 = result.get(2)+result.get(1);<br>第一个3 = result.get(1)+result.get(0);</p>
-<p>而我们需要的是从第二行开始一行一行变化，所以设两个循环</p>
-<p>for(int i = 2，i &lt;= rowIndex;i++){<br>//从第二行开始<br>    for(int j = i-1,j&gt;0;j–){<br>    //从后往前<br>    result.set(j,result.get(j)+result.get(j-1));<br>}<br>    //最后一个元素为1<br>    result.add(1);<br>}</p>
-<p>完整代码：<br>class Solution {<br>    public List<integer> getRow(int rowIndex) {<br>        List<integer> result = new ArrayList&lt;&gt;();<br>        if(rowIndex &gt;= 0){<br>            result.add(1);<br>        }<br>        if(rowIndex &gt;= 1){<br>            result.add(1);<br>        }<br>        if(rowIndex &gt;= 2){<br>            for(int i = 2;i &lt;rowIndex+1;i++){<br>                for(int j = i-1;j &gt; 0;j–){<br>                    result.set(j,result.get(j)+result.get(j-1));<br>                }<br>                result.add(1);<br>            }<br>        }<br>        return result;<br>    }<br>}</integer></integer></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-118/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/11/leetcode-118/" class="post-title-link" itemprop="url">leetcode_118</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-11 09:27:05 / Modified: 09:32:21" itemprop="dateCreated datePublished" datetime="2019-03-11T09:27:05+08:00">2019-03-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/pascals-triangle/" target="_blank" rel="noopener">https://leetcode.com/problems/pascals-triangle/</a></p>
-<p>思路：动态规划</p>
-<p>代码：<br>class Solution {<br>    public List&lt;List<integer>&gt; generate(int numRows) {<br>        List&lt;List<integer>&gt; list = new ArrayList&lt;List<integer>&gt;();<br>        //若只有零行<br>        if(numRows == 0){<br>            return list;<br>        }<br>        //第一行元素总为1<br>        list.add(new ArrayList&lt;&gt;());<br>        list.get(0).add(1);<br>        for(int rowNum = 1;rowNum&lt;numRows;rowNum++){<br>            List<integer> row = new ArrayList&lt;&gt;();<br>            List<integer> prevRow = list.get(rowNum-1);<br>            //每行第一个元素都为1<br>            row.add(1);<br>            for(int j = 1;j &lt; rowNum;j++){<br>                row.add(prevRow.get(j-1)+prevRow.get(j));<br>            }<br>            //每行最后一个元素为1<br>            row.add(1);<br>            list.add(row);<br>        }<br>        return list;<br>    }<br>}</integer></integer></integer></integer></integer></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-113/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/11/leetcode-113/" class="post-title-link" itemprop="url">leetcode_113</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-11 08:50:51 / Modified: 08:51:58" itemprop="dateCreated datePublished" datetime="2019-03-11T08:50:51+08:00">2019-03-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/path-sum-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum-ii/</a></p>
-<p>代码：</p>
-<p>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li><p>}<br>*/<br>class Solution {<br> public List&lt;List<integer>&gt; pathSum(TreeNode root, int sum) {</integer></p>
-<pre><code>List&lt;List&lt;Integer&gt;&gt; list = new LinkedList&lt;&gt;();
-if(root == null){
-    return list;
-}
-List&lt;Integer&gt; currentList = new ArrayList&lt;&gt;();
-currentList.add(root.val);
-traverse(list,currentList,root,sum);
-return list;
-</code></pre><p> }<br> public void traverse(List&lt;List<integer>&gt; list,List<integer> currentList,TreeNode root,int sum){ </integer></integer></p>
-<pre><code>if(root.left == null &amp;&amp; root.right == null){
-    if (root.val == sum){
-        list.add(new ArrayList&lt;&gt;(currentList));
-    }
-    return;
-}
-if(root.left != null){
-    currentList.add(root.left.val);
-    traverse(list,currentList,root.left,sum-root.val);
-    currentList.remove(currentList.size()-1);
-}
-if(root.right != null){
-    currentList.add(root.right.val);
-    traverse(list,currentList,root.right,sum-root.val);
-    currentList.remove(currentList.size()-1);
-}
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/leetcode-112/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sugar">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/pikaqiu.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sugar's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/11/leetcode-112/" class="post-title-link" itemprop="url">leetcode_112</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-11 08:16:53 / Modified: 08:18:20" itemprop="dateCreated datePublished" datetime="2019-03-11T08:16:53+08:00">2019-03-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目来源：<a href="https://leetcode.com/problems/path-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum/</a></p>
-<p>代码：<br>/**</p>
-<ul>
-<li>Definition for a binary tree node.</li>
-<li>public class TreeNode {</li>
-<li>int val;</li>
-<li>TreeNode left;</li>
-<li>TreeNode right;</li>
-<li>TreeNode(int x) { val = x; }</li>
-<li>}<br>*/<br>class Solution {<br> public boolean hasPathSum(TreeNode root, int sum) {<pre><code>int s = 0;
- return dfs(root,sum,s);
-</code></pre> }<br> public boolean dfs(TreeNode root, int sum,int s){<pre><code>if(root == null){
-    return false;
-}
-if(root.left == null &amp;&amp; root.right == null){
-    //到达叶节点，判断和是否等于sum
-    s += root.val;
-    if(s == sum){
-        return true;
-    }
-}
-s += root.val;
-//递归
-boolean left = dfs(root.left,sum,s);
-boolean right = dfs(root.right,sum,s);
-if(left||right){
-    return true;
-}
-return false;
-</code></pre> }<br>}</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2030,7 +2053,7 @@ return false;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2143,7 +2166,7 @@ return false;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
